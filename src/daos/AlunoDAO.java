@@ -22,7 +22,7 @@ public boolean inserir(Aluno aluno) {
 
 	String sql = "insert into alunos (matricula, nome, CPF, dataNascimento, endereco) values (?, ?, ?, ?);";
 
-	try {
+	try { 
 		PreparedStatement stmt = connection.prepareStatement(sql);
 		
 		stmt.setString(1, aluno.getMatricula());
@@ -77,7 +77,7 @@ public List<Aluno> getList() {
 	return result;
 }
 
-public boolean alterar (Aluno aluno) {
+  public boolean alterar (Aluno aluno) {
 	String sql = "update alunos set nmatricula=?, nome=?, CPF=?, dataNascimento=?, endereco=? where id=?;";
 	try {
 		PreparedStatement stmt = connection.prepareStatement(sql);

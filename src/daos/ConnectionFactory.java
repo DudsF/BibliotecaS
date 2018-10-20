@@ -8,8 +8,8 @@ import java.sql.SQLException;
 public class ConnectionFactory {
 	
 	private static Connection con = null;
-	private static final String banco = "bibliotecaString";
-	private static final String user = "eduarda";
+	private static final String banco = "BibliotecaS";
+	private static final String user = "root";
 	private static final String password = "1234";
 
 	public static Connection getConnection() {

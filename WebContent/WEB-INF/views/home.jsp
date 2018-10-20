@@ -7,6 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Minha aplicação deu CERTO!</h1>
+<h1>Biblioteca Lamary</h1>
+<nav id="menu">
+    <ul>
+        <li><a href="#"> Cadastrar aluno</a></li>
+        <li><a href="#">Cadastrar livro</a></li>
+        <li><a href="#">Emprestimo</a></li>
+        <li><a href="#">Lista de alunos</a></li>
+    
+    </ul>
+</nav>
 </body>
 </html>

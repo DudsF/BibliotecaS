@@ -9,13 +9,13 @@ public class Livro {
 	private String titulo;
 	private String autor;
 	private String editora;
-	@DateTimeFormat(pattern="yyyy")
+	@DateTimeFormat(pattern="YYYY")
 	private static Calendar anoPub;
 	private String edicao;
 
 	@Override
 	public String toString() {
-		return "livro [id=" + id + ", titulo=" + titulo + ", autor=" + autor + ", editoraF=" + editora + ", anoPub=" + anoPub + ", edicao=" + edicao
+		return "livro [id=" + id + ", titulo=" + titulo + ", autor=" + autor + ", editora=" + editora + ", anoPub=" + anoPub + ", edicao=" + edicao
 				+ "]";
 	}
 

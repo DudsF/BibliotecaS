@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
- <h1> Aluno ${aluno.nome} cadastrado com sucesso!</h1>
+ <h1> Cadastrado com sucesso!</h1>
 </body>
 </html>

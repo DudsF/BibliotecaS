@@ -9,7 +9,7 @@
 <body>
 
 	<h1>Adicionar Aluno</h1>
-	<form action="/bibliotecaSpring/alunos" method="post">
+	<form action="/BibliotecaS/alunos" method="post">
 		
 		<div>
 			<label>Matricula: </label> 
@@ -33,7 +33,7 @@
 		</div>
 		
 		<div>
-			<button type="submit">Adicionar</button>
+			<button type="submit">Cadastrar</button>
 		</div>
 	</form>
 </body>
