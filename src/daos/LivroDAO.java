@@ -20,7 +20,7 @@ public class LivroDAO {
 
 	public boolean inserir( Livro livro) {
 
-		String sql = "insert into livros (titulo, autor, editora,  anoPub, edicao) values (?, ?, ?, ?);";
+		String sql = "insert into livros (titulo, autor, editora, anoPub, edicao) values (?, ?, ?, ?, ?);";
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
