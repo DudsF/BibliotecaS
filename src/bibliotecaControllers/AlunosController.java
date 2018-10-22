@@ -1,5 +1,7 @@
 package bibliotecaControllers;
 
+
+
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -34,7 +36,7 @@ public class AlunosController {
 	public ModelAndView listar() {
 		System.out.println("Chamou método de listagem");
 		AlunoDAO AlunoDAO = new AlunoDAO();
-		List<Aluno> lista = AlunoDAO.getList();
+		List<Aluno> lista = AlunoDAO.getLista();
 		ModelAndView model = new ModelAndView("alunos/lista");
 		model.addObject("alunos", lista);
 		return model;

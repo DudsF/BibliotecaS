@@ -20,7 +20,7 @@ public AlunoDAO() {
 
 public boolean inserir(Aluno aluno) {
 
-	String sql = "insert into alunos (matricula, nome, CPF, dataNascimento, endereco) values (?, ?, ?, ?);";
+	String sql = "insert into alunos (matricula, nome, CPF, dataNascimento, endereco) values (?, ?, ?, ?, ?);";
 
 	try { 
 		PreparedStatement stmt = connection.prepareStatement(sql);
@@ -34,6 +34,8 @@ public boolean inserir(Aluno aluno) {
 
 		stmt.execute();
 		stmt.close();
+		
+		System.out.println("Gravado!");
 
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
@@ -44,7 +46,7 @@ public boolean inserir(Aluno aluno) {
 	return true;
 }
 
-public List<Aluno> getList() {
+public List<Aluno> getLista() {
 	List<Aluno> result = new ArrayList<>();
 
 	try {
@@ -58,12 +60,15 @@ public List<Aluno> getList() {
 			aluno.setMatricula(rs.getString("matricula"));
 			aluno.setNome(rs.getString("nome"));
 			aluno.setCPF(rs.getString("CPF"));
-			aluno.setEndereco(rs.getString("endereco"));
-
+			
+			
 			// montando a data atrav�s do Calendar
 			Calendar data = Calendar.getInstance();
 			data.setTime(rs.getDate("dataNascimento"));
 			aluno.setDataNascimento(data);
+						
+			aluno.setEndereco(rs.getString("endereco"));
+
 
 			// adicionando o objeto � lista
 			result.add(aluno);
@@ -78,7 +83,7 @@ public List<Aluno> getList() {
 }
 
   public boolean alterar (Aluno aluno) {
-	String sql = "update alunos set nmatricula=?, nome=?, CPF=?, dataNascimento=?, endereco=? where id=?;";
+	String sql = "update alunos set matricula=?, nome=?, CPF=?, dataNascimento=?, endereco=? where id=?;";
 	try {
 		PreparedStatement stmt = connection.prepareStatement(sql);
 		stmt.setString(1, aluno.getMatricula());

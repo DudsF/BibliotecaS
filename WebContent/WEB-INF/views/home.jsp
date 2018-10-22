@@ -7,15 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Biblioteca Lamary</h1>
-<nav id="menu">
-    <ul>
-        <li><a href="#"> Cadastrar aluno</a></li>
-        <li><a href="#">Cadastrar livro</a></li>
-        <li><a href="#">Emprestimo</a></li>
-        <li><a href="#">Lista de alunos</a></li>
+<div align="center"><h2>Bibliote Lamary</h2></div>
+<nav id="home">
+   <ul>
+        <h1><a href="alunos/form"> Cadastrar aluno</a></h1>
+        <h1><a href="livros/form">Cadastrar livro</a></h1>
+        <h1><a href="#">Emprestimo</a></h1>
+        <h1><a href="#">Lista de alunos</a></h1>
     
     </ul>
+        
 </nav>
 </body>
 </html>

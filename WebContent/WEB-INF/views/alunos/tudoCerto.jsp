@@ -8,5 +8,9 @@
 </head>
 <body>
  <h1> Cadastrado com sucesso!</h1>
+ <div>
+			<button href="home">Voltar</button>
+		</div>
+		
 </body>
 </html>
