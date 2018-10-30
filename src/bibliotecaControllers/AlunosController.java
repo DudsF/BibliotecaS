@@ -29,7 +29,7 @@ public class AlunosController {
 		System.out.println(aluno);
 		AlunoDAO alunoDAO = new AlunoDAO();
 		alunoDAO.inserir(aluno);
-		return "redirect:alunos/tudoCerto";
+		return "redirect:alunos/";
 	}
 	
 	@GetMapping("/alunos")
