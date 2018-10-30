@@ -73,7 +73,7 @@ input[type=submit]:hover {
 </style>
 </head>
 <body>
-
+<c:import url="../menu.jsp"></c:import>
 	<div class="container">
 		<h1>Adicionar Aluno</h1>
 		<form action="/BibliotecaS/alunos" method="post">
@@ -83,7 +83,7 @@ input[type=submit]:hover {
 					<label for="fname">Matricula</label>
 				</div>
 				<div class="col-75">
-					<input type="text" id="fname" name="matricula"
+				<input type="text" id="fname" name="matricula"
 						placeholder="Sua matricula...">
 				</div>
 			</div>
@@ -134,7 +134,7 @@ input[type=submit]:hover {
 		</form>
 	</div>
 
-	<c:import url="../menu.jsp"></c:import>
+	
 
 
 

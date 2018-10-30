@@ -80,7 +80,13 @@ li.dropdown {
     </div>
   </li>
   
-  <li><a href="#home">Emprestimo</a></li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Emprestimo</a>
+    <div class="dropdown-content">
+    	<a href="/BibliotecaS/emprestimo/form">Fazer emprestimo</a>
+    	<a href="/BibliotecaS/emprestimo/relatorio">Relatório</a>
+    	</div>
+    </li>
 </ul>
 
 
