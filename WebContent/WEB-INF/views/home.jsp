@@ -20,17 +20,6 @@ body  {
 
 <c:import url= "menu.jsp"></c:import>
 
-<h1>Biblioteca La</h1>
-
-<div align="center"><h2>Bibliote Lamary</h2></div>
-
-   <ul>
-        <h1><a href="alunos/form"> Cadastrar aluno</a></h1>
-        <h1><a href="livros/form">Cadastrar livro</a></h1>
-        <h1><a href="#">Emprestimo</a></h1>
-        <h1><a href="#">Lista de alunos</a></h1>
-    
-    </ul>
 
 </body>
 </html>
