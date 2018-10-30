@@ -1,10 +1,7 @@
  <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<<<<<<< HEAD
-    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-=======
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
->>>>>>> branch 'master' of https://github.com/DudsF/BibliotecaS.git
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -20,17 +17,11 @@ body  {
 </style>
 </head>
 <body>
-<<<<<<< HEAD
+
 <c:import url= "menu.jsp"></c:import>
 
 <h1>Biblioteca La</h1>
-=======
-<<<<<<< HEAD
 
-	<c:import url="menu.jsp"></c:import>
-
-<h1>Deu certo...</h1>
-=======
 <div align="center"><h2>Bibliote Lamary</h2></div>
 
    <ul>
@@ -40,13 +31,7 @@ body  {
         <h1><a href="#">Lista de alunos</a></h1>
     
     </ul>
->>>>>>> branch 'master' of https://github.com/DudsF/BibliotecaS.git
-        
-<<<<<<< HEAD
-=======
 
->>>>>>> branch 'master' of https://github.com/DudsF/BibliotecaS.git
->>>>>>> branch 'master' of https://github.com/DudsF/BibliotecaS.git
 </body>
 </html>
 

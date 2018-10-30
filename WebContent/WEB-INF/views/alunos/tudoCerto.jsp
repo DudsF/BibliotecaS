@@ -10,13 +10,9 @@
 <body>
 <c:import url= "../menu.jsp"></c:import>
  <h1> Cadastrado com sucesso!</h1>
-<<<<<<< HEAD
 
-=======
- <div>
-			<a href="">Voltar para a página inicial</a>
-		</div>
->>>>>>> branch 'master' of https://github.com/DudsF/BibliotecaS.git
+
+
 		
 </body>
 </html>
