@@ -7,14 +7,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<style>
-body  {
-	
-    background-image: url("http://www.goexpress.pt/app/uploads/2017/05/Melhores-livros.jpg");
-      background-repeat: no-repeat;
-   	background-size: 1600px 800px; 
-}
-</style>
 </head>
 <body>
 
