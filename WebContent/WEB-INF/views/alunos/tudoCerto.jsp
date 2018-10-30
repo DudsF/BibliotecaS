@@ -10,9 +10,6 @@
 <body>
 <c:import url= "../menu.jsp"></c:import>
  <h1> Cadastrado com sucesso!</h1>
-
-
-
 		
 </body>
 </html>
