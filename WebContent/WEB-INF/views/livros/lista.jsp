@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<c:import url= "../menu.jsp"></c:import>
 <h1>Lista de livros:</h1>
 
 	<table border="2">
@@ -31,6 +32,7 @@
 					<td>${livro.editora }</td>
 					<td>${livro.anoPub.time }</td>
 					<td>${livro.edicao }</td>
+					
 				</tr>
 			</c:forEach>
 

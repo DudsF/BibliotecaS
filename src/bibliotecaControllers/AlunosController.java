@@ -27,9 +27,9 @@ public class AlunosController {
 	public String adicionar(Aluno aluno) {
 		System.out.println("Chamou o método de adicionar");
 		System.out.println(aluno);
-		AlunoDAO AlunoDAO = new AlunoDAO();
-		AlunoDAO.inserir(aluno);
-		return "alunos/tudoCerto";
+		AlunoDAO alunoDAO = new AlunoDAO();
+		alunoDAO.inserir(aluno);
+		return "redirect:alunos/tudoCerto";
 	}
 	
 	@GetMapping("/alunos")
