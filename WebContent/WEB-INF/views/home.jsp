@@ -10,7 +10,7 @@
 <body>
 <c:import url= "menu.jsp"></c:import>
 
-<h1>Biblioteca Lamary</h1>
+<h1>Biblioteca La</h1>
         
 </body>
 </html>
