@@ -8,9 +8,9 @@ import java.sql.SQLException;
 public class ConnectionFactory {
 	
 	private static Connection con = null;
-	private static final String banco = "BibliotecaS";
+	private static final String banco = "biblioteca";
 	private static final String user = "root";
-	private static final String password = "1234";
+	private static final String password = "lab02";
 
 	public static Connection getConnection() {
 		if (con == null) {
