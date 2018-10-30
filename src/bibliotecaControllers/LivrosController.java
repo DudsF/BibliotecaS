@@ -21,13 +21,13 @@ public class LivrosController {
 			return "livros/form";
 		}
 		
-		@PostMapping("/livros/tudoCerto")
+		@PostMapping("/livros")
 		public String adicionar(Livro livro) {
 			System.out.println("Chamou o método de adicionar");
 			System.out.println(livro);
 			LivroDAO LivroDAO = new LivroDAO();
 			LivroDAO.inserir(livro);
-			return "livros/lista";
+			return "livros/tudoCerto";
 		}
 		
 		@GetMapping("/livros")

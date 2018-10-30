@@ -33,7 +33,7 @@ public class Aluno {
 		}
 
 		public void setMatricula(String matricula) {
-			this.nome = matricula;
+			this.matricula = matricula;
 		}
 
 		public String getNome() {

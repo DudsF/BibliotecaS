@@ -8,11 +8,11 @@
 </head>
 <body>
 <h1>Adicionar Livro</h1>
-	<form action="/BibiotecaS/livros/tudoCerto" method="post">
+	<form action="/BibiotecaS/livros" method="post">
 		
 		<div>
 			<label>Título: </label> 
-			<input type="text" name="titilo">
+			<input type="text" name="titulo">
 		</div>
 		<div>
 			<label>Autor: </label> 
