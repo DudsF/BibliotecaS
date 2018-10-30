@@ -46,5 +46,14 @@
 			<artifactId>jstl-impl</artifactId>
 			<version>1.2</version>
 		</dependency>
+<<<<<<< HEAD
+=======
+		<dependency>
+    <groupId>jstl</groupId>
+    <artifactId>jstl</artifactId>
+    <version>1.2</version>
+</dependency>
+
+>>>>>>> branch 'master' of https://github.com/DudsF/BibliotecaS.git
 	</dependencies>
 </project>

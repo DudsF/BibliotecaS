@@ -8,9 +8,17 @@ import java.sql.SQLException;
 public class ConnectionFactory {
 	
 	private static Connection con = null;
+<<<<<<< HEAD
 	private static final String banco = "bibliotecas";
+=======
+<<<<<<< HEAD
+	private static final String banco = "biblioteca";
+=======
+	private static final String banco = "biblioteca_lamary";
+>>>>>>> branch 'master' of https://github.com/DudsF/BibliotecaS.git
+>>>>>>> branch 'master' of https://github.com/DudsF/BibliotecaS.git
 	private static final String user = "root";
-	private static final String password = "1234";
+	private static final String password = "lab02";
 
 	public static Connection getConnection() {
 		if (con == null) {
