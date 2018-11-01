@@ -5,12 +5,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Listagem de livro</title>
 </head>
+<style>
+.centralizado {
+	text-align: center;
+	margin: 0 auto;
+}
+</style>
 <body>
 <c:import url= "../menu.jsp"></c:import>
-<h1>Lista de livros:</h1>
-
+<div class= "centralizando">
+	<h1>Lista de livros</h1>
+</div>
 	<table border="2">
 		<thead>
 			<tr>

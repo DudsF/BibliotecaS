@@ -5,37 +5,150 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Cadastrando livro</title>
+</head>
+<style>
+* {
+	box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+	width: 90%;
+	padding: 12px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	resize: vertical;
+}
+
+label {
+	padding: 12px 12px 12px 0;
+	display: inline-block;
+}
+
+input[type=submit] {
+	background-color: #333;
+	color: white;
+	padding: 12px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	float: right;
+}
+
+input[type=submit]:hover {
+	background-color: LightCoral;
+}
+
+.container {
+ 	position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 45%;
+    transform: translateY(-50%) translateX(-50%);
+	center;
+	border-radius: 5px;
+	background-color: #ccc;
+	padding: 20px;
+}
+.centralizado {
+	text-align: center;
+	margin: 0 auto;
+}
+
+.col-25 {
+	float: left;
+	width: 25%;
+	margin-top: 8px;
+}
+
+.col-75 {
+	float: left;
+	width: 70%;
+	margin-top: 5px;
+}
+
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+@media screen and (max-width: 600px) {
+	.col-25, .col-75, input[type=submit] {
+		width: 100%;
+		margin-top: 0;
+	}
+	
+}
+</style>
 </head>
 <body>
-<c:import url= "../menu.jsp"></c:import>
-<h1>Adicionar Livro</h1>
-	<form action="/BibiotecaS/livros" method="post">
-		
-		<div>
-			<label>Título: </label> 
-			<input type="text" name="titulo">
+<c:import url="../menu.jsp"></c:import>
+
+	<div class="container">
+	<div class="centralizado">
+		<h1>Adicionar Livro</h1>
 		</div>
-		<div>
-			<label>Autor: </label> 
-			<input type="text" name="autor">
-		</div>
-		<div>
-			<label>Editora: </label> 
-			<input type="text" name="editora">
-		</div>
-		<div>
-			<label>Ano de Publicação: </label>
-			<input type="text" name="anoPub">
-		</div>
-		<div>
-			<label>Edição: </label> 
-			<input type="text" name="edicao">
-		</div>
-		
-		<div>
-			<button type="submit">Cadastrar</button>
-		</div>
-	</form>
+		<form action="/BibliotecaS/livros" method="post">
+
+			<div class="row">
+				<div class="col-25">
+					<label for="fname">Título</label>
+				</div>
+				<div class="col-75">
+				<input type="text" id="fname" name="titulo"
+						placeholder="Título do livro...">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-25">
+					<label for="lname">Autor</label>
+				</div>
+				<div class="col-75">
+					<input type="text" id="lname" name="autor" placeholder="Autor do livro...">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-25">
+					<label for="country">Editora</label>
+				</div>
+				<div class="col-75">
+					<input type="text" id="lname" name="editora"
+						placeholder="Editora do livro...">
+				</div>
+			</div>
+
+
+			<div class="row">
+				<div class="col-25">
+					<label for="country">Ano de publicação</label>
+				</div>
+				<div class="col-75">
+					<input type="text" id="lname" name="anoPub"
+						placeholder="Ano de publicação do livro...">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-25">
+					<label for="country">Edição</label>
+				</div>
+				<div class="col-75">
+					<input type="text" id="lname" name="edicao"
+						placeholder=" Edição do livro...">
+				</div>
+			</div>
+
+			<div class="row">
+				<input type="submit" value="Cadastrar">
+			</div>
+		</form>
+	</div>
+
+	
+
+</style>
 </body>
 </html>

@@ -5,11 +5,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Listagem de aluno</title>
 </head>
 <body>
 <c:import url= "../menu.jsp"></c:import>
-<h1>Lista de alunos:</h1>
+<h1>Lista de alunos</h1>
 
 	<table border="2">
 		<thead>

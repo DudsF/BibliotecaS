@@ -5,10 +5,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Cadastrando Aluno</title>
 </head>
 
 <style>
+body {
+	background-image: url("http://weekon.com.ar/wp-content/uploads/2016/12/biblio-web.jpg");
+    background-repeat: no-repeat;
+	background-size: 1366px 655px;
+}
+
 * {
 	box-sizing: border-box;
 }
@@ -40,10 +46,20 @@ input[type=submit]:hover {
 	background-color: LightCoral;
 }
 
-.container {center;
+.container {
+ 	position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 45%;
+    transform: translateY(-50%) translateX(-50%);
+	center;
 	border-radius: 5px;
-	background-color: pink;
+	background-color: #ccc;
 	padding: 20px;
+}
+.centralizado {
+	text-align: center;
+	margin: 0 auto;
 }
 
 .col-25 {
@@ -69,13 +85,17 @@ input[type=submit]:hover {
 		width: 100%;
 		margin-top: 0;
 	}
+	
 }
 </style>
 </head>
 <body>
 <c:import url="../menu.jsp"></c:import>
+
 	<div class="container">
+	<div class="centralizado">
 		<h1>Adicionar Aluno</h1>
+		</div>
 		<form action="/BibliotecaS/alunos" method="post">
 
 			<div class="row">
@@ -83,8 +103,7 @@ input[type=submit]:hover {
 					<label for="fname">Matricula</label>
 				</div>
 				<div class="col-75">
-				<input type="text" id="fname" name="matricula"
-						placeholder="Sua matricula...">
+				<input type="text" id="fname" name="matricula" maxlength="14" placeholder="Sua matricula...">
 				</div>
 			</div>
 
@@ -102,19 +121,16 @@ input[type=submit]:hover {
 					<label for="country">CPF</label>
 				</div>
 				<div class="col-75">
-					<input type="text" id="lname" name="cpf"
-						placeholder="Digite seu Cpf...">
+					<input type="text" id="lname" name="CPF" maxlength="11" placeholder="Digite seu Cpf...">
 				</div>
 			</div>
-
 
 			<div class="row">
 				<div class="col-25">
 					<label for="country">Data de Nascimento</label>
 				</div>
 				<div class="col-75">
-					<input type="text" id="lname" name="dataNascimento"
-						placeholder="Sua data de nascimento...">
+					<input type="text" id="lname" name="dataNascimento" placeholder="Sua data de nascimento...">
 				</div>
 			</div>
 
@@ -123,8 +139,7 @@ input[type=submit]:hover {
 					<label for="country">Endereço</label>
 				</div>
 				<div class="col-75">
-					<input type="text" id="lname" name="endereco"
-						placeholder=" Seu endereço...">
+					<input type="text" id="lname" name="endereco" placeholder=" Seu endereço...">
 				</div>
 			</div>
 
