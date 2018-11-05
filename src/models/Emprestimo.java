@@ -6,12 +6,11 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 public class Emprestimo {
 
-	private String matricula;
-	private String titulo;
-	@DateTimeFormat(pattern="dd/MM/yyyy")
+	private Aluno aluno;
+	private Livro livro;
 	private Calendar dataEmprestimo;
 	private Calendar dataDevolucao;
-
+	
 	@Override
 	public String toString() {
 		return "aluno [matricula=" + matricula + ", titulo=" + titulo + ", dataEmprestimo=" + dataEmprestimo + ", dataDevolucao=" + dataDevolucao	+ "]";
