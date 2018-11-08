@@ -37,7 +37,6 @@ public class EmpController {
 			return model; 
 			
 		}
-		
 		long idAluno = aluno.getId();
 				
 		LivroDAO livroDAO = new LivroDAO();
