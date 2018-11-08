@@ -44,30 +44,32 @@ public class AlunoDAO {
 		return true;
 	}
 
-	public List<Aluno> getLista() {
+	public List<Aluno> buscar(String aluno) {
 		List<Aluno> result = new ArrayList<>();
-
+		String sql = "select * from alunos where nome = ?;";
+		
 		try {
-			PreparedStatement stmt = this.connection.prepareStatement("select * from alunos;");
+			PreparedStatement stmt = this.connection.prepareStatement(sql);
+			stmt.setString(1, aluno);
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
 				// criando o objeto Aluno
-				Aluno aluno = new Aluno();
-				aluno.setId(rs.getLong("id"));
-				aluno.setMatricula(rs.getString("matricula"));
-				aluno.setNome(rs.getString("nome"));
-				aluno.setCPF(rs.getString("CPF"));
+				Aluno alun = new Aluno();
+				alun.setId(rs.getLong("id"));
+				alun.setMatricula(rs.getString("matricula"));
+				alun.setNome(rs.getString("nome"));
+				alun.setCPF(rs.getString("CPF"));
 
 				// montando a data atrav�s do Calendar
 				Calendar data = Calendar.getInstance();
 				data.setTime(rs.getDate("dataNascimento"));
-				aluno.setDataNascimento(data);
+				alun.setDataNascimento(data);
 
-				aluno.setEndereco(rs.getString("endereco"));
+				alun.setEndereco(rs.getString("endereco"));
 
 				// adicionando o objeto � lista
-				result.add(aluno);
+				result.add(alun);
 			}
 			rs.close();
 			stmt.close();
@@ -97,10 +99,10 @@ public class AlunoDAO {
 		return true;
 	}
 
-	public boolean remover(Aluno aluno) {
+	public boolean remover(Long id) {
 		try {
 			PreparedStatement stmt = connection.prepareStatement("delete from alunos where id=?;");
-			stmt.setLong(1, aluno.getId());
+			stmt.setLong(1, id);
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {
@@ -110,7 +112,7 @@ public class AlunoDAO {
 		return true;
 	}
 
-	public Aluno getById1(Long id) {
+	public Aluno getById(Long id) {
 		Aluno result = null;
 
 		try {
@@ -131,6 +133,63 @@ public class AlunoDAO {
 				Calendar data = Calendar.getInstance();
 				data.setTime(rs.getDate("dataNascimento"));
 				result.setDataNascimento(data);
+			}
+			rs.close();
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return result;
+	}
+	
+	public Aluno getByMatricula(int matricula) {
+		Aluno result = null;
+
+		try {
+			PreparedStatement stmt = this.connection.prepareStatement("select * from alunos where matricula = ?;");
+			stmt.setInt(1, matricula);
+			ResultSet rs = stmt.executeQuery();
+
+			if (rs.next()) {
+				result = new Aluno();
+				result.setId(rs.getLong("id"));
+				result.setNome(rs.getString("nome"));
+				result.setMatricula(rs.getString("matricula"));
+				result.setEndereco(rs.getString("endereco"));
+				Calendar dataNascimento = Calendar.getInstance();
+				dataNascimento.setTime(rs.getDate("dataNascimento"));
+				result.setDataNascimento(dataNascimento);
+			}
+			rs.close();
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return result;
+	}
+	
+	public List<Aluno> getAlunos() {
+		List<Aluno> result = new ArrayList<>();
+
+		try {
+			PreparedStatement stmt = this.connection.prepareStatement("select * from alunos;");
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) {
+				// criando o objeto aluno
+				Aluno alun = new Aluno();
+				alun.setId(rs.getLong("id"));
+				alun.setNome(rs.getString("nome"));
+				alun.setCPF(rs.getString("cpf"));
+				alun.setMatricula(rs.getString("matricula"));
+				alun.setEndereco(rs.getString("endereco"));
+				Calendar dataNascimento = Calendar.getInstance();
+				dataNascimento.setTime(rs.getDate("dataNascimento"));
+				alun.setDataNascimento(dataNascimento);
+			
+				result.add(alun);
 			}
 			rs.close();
 			stmt.close();

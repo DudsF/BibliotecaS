@@ -45,8 +45,9 @@ public class LivroDAO {
 		return true;
 	}
 
-	public List<Livro> getList() {
+	public List<Livro> getLivro() {
 		List<Livro> result = new ArrayList<>();
+		String sql = "select * from livro where nome = ?;";
 
 		try {
 			PreparedStatement stmt = this.connection.prepareStatement("select * from livros;");
@@ -54,20 +55,20 @@ public class LivroDAO {
 
 			while (rs.next()) {
 				// criando o objeto Livro
-				Livro livro = new Livro();
-				livro.setId(rs.getLong("id"));
-				livro.setTitulo(rs.getString("titulo"));
-				livro.setAutor(rs.getString("autor"));
-				livro.setEditora(rs.getString("editora"));
-				livro.setEdicao(rs.getString("edicao"));
+				Livro livr = new Livro();
+				livr.setId(rs.getLong("id"));
+				livr.setTitulo(rs.getString("titulo"));
+				livr.setAutor(rs.getString("autor"));
+				livr.setEditora(rs.getString("editora"));
+				livr.setEdicao(rs.getString("edicao"));
 
 				// montando a data atrav�s do Calendar
 				Calendar data = Calendar.getInstance();
 				data.setTime(rs.getDate("anoPub"));
-				livro.setAnoPub(data);
+				livr.setAnoPub(data);
 
 				// adicionando o objeto � lista
-				result.add(livro);
+				result.add(livr);
 			}
 			rs.close();
 			stmt.close();
@@ -110,7 +111,7 @@ public class LivroDAO {
 		return true;
 	}
 
-	public Livro getById1(Long id) {
+	public Livro getById(Long id) {
 		Livro result = null;
 
 		try {
@@ -141,5 +142,35 @@ public class LivroDAO {
 		return result;
 	}
 
+	public Livro getByTitulo(String titulo) {
+		Livro result = null;
+
+		try {
+			PreparedStatement stmt = this.connection.prepareStatement("select * from livros where titulo = ?;");
+			stmt.setString(1, titulo);
+			ResultSet rs = stmt.executeQuery();
+
+			if (rs.next()) {
+				result = new Livro();
+				result.setId(rs.getLong("id"));
+				result.setTitulo(rs.getString("titulo"));
+				result.setAutor(rs.getString("autor"));
+				result.setEditora(rs.getString("editora"));
+				
+				Calendar data = Calendar.getInstance();
+				data.setTime(rs.getDate("anoPub"));
+				result.setAnoPub(data);
+				
+				result.setEdicao(rs.getString("edicao"));
+				
+			}
+			rs.close();
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return result;
+	}
 
 }

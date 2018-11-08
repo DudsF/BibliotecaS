@@ -11,41 +11,31 @@ public class Emprestimo {
 	private Calendar dataEmprestimo;
 	private Calendar dataDevolucao;
 	
-	@Override
-	public String toString() {
-		return "aluno [matricula=" + matricula + ", titulo=" + titulo + ", dataEmprestimo=" + dataEmprestimo + ", dataDevolucao=" + dataDevolucao	+ "]";
+	public Aluno getAluno() {
+		return aluno;
 	}
-
-	public String getMatricula() {
-		return matricula;
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
 	}
-
-	public void setMatricula(String matricula) {
-		this.matricula = matricula;
+	public Livro getLivro() {
+		return livro;
 	}
-
-	public String getTituloDoLivro() {
-		return titulo;
+	public void setLivro(Livro livro) {
+		this.livro = livro;
 	}
-
-	public void setTituloDoLivro(String tituloDoLivro) {
-		titulo = tituloDoLivro;
-	}
-
 	public Calendar getDataEmprestimo() {
 		return dataEmprestimo;
 	}
-
 	public void setDataEmprestimo(Calendar dataEmprestimo) {
 		this.dataEmprestimo = dataEmprestimo;
 	}
-
 	public Calendar getDataDevolucao() {
 		return dataDevolucao;
 	}
-
 	public void setDataDevolucao(Calendar dataDevolucao) {
 		this.dataDevolucao = dataDevolucao;
 	}
 	
+
+
 }

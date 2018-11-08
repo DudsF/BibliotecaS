@@ -34,7 +34,7 @@ public class LivrosController {
 		public ModelAndView listar() {
 			System.out.println("Chamou método de listagem");
 			LivroDAO LivroDAO = new LivroDAO();
-			List<Livro> lista = LivroDAO.getList();
+			List<Livro> lista = LivroDAO.getLivro();
 			ModelAndView model = new ModelAndView("livros/lista");
 			model.addObject("livros", lista);
 			return model;

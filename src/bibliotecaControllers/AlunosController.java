@@ -36,7 +36,7 @@ public class AlunosController {
 	public ModelAndView listar() {
 		System.out.println("Chamou método de listagem");
 		AlunoDAO AlunoDAO = new AlunoDAO();
-		List<Aluno> lista = AlunoDAO.getLista();
+		List<Aluno> lista = AlunoDAO.getAlunos();
 		ModelAndView model = new ModelAndView("alunos/lista");
 		model.addObject("alunos", lista);
 		return model;
