@@ -10,7 +10,7 @@ public class Livro {
 	private String autor;
 	private String editora;
 	@DateTimeFormat(pattern="YYYY")
-	private static Calendar anoPub;
+	private Calendar anoPub;
 	private String edicao;
 
 	@Override
@@ -51,12 +51,12 @@ public class Livro {
 		this.editora = editora;
 	}
 
-	public static Calendar getAnoPub() {
+	public Calendar getAnoPub() {
 		return anoPub;
 	}
 
 	public void setAnoPub(Calendar anoPub) {
-		Livro.anoPub = anoPub;
+		this.anoPub = anoPub;
 	}
 
 	public String getEdicao() {
