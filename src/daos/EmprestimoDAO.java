@@ -53,14 +53,11 @@ public class EmprestimoDAO {
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
-				// While que conta quantos livros ele tem que n o foram devolvidos
 
 				qtdDeLivrosEmprestados++;
 
 			}
 			stmt.close();
-
-		
 
 			if (qtdDeLivrosEmprestados >= 3) {
 				

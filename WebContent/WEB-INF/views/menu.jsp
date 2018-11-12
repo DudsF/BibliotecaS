@@ -76,7 +76,7 @@ li.dropdown {
     <a href="javascript:void(0)" class="dropbtn">Livro</a>
     <div class="dropdown-content">
       <a href="/BibliotecaS/livros/form">Cadastrar livro</a>
-      <a href="/BibliotecaS/livros/lista">Listar livros</a>
+      <a href="/BibliotecaS/livros/">Listar livros</a>
     </div>
   </li>
   

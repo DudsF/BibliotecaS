@@ -33,8 +33,8 @@ public class LivrosController {
 		@GetMapping("/livros")
 		public ModelAndView listar() {
 			System.out.println("Chamou método de listagem");
-			LivroDAO LivroDAO = new LivroDAO();
-			List<Livro> lista = LivroDAO.getLivro();
+			LivroDAO livroDAO = new LivroDAO();
+			List<Livro> lista = livroDAO.buscar();
 			ModelAndView model = new ModelAndView("livros/lista");
 			model.addObject("livros", lista);
 			return model;

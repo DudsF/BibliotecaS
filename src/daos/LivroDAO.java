@@ -45,14 +45,15 @@ public class LivroDAO {
 		return true;
 	}
 
-	public List<Livro> getLivro() {
+	public List<Livro> buscar () {
 		List<Livro> result = new ArrayList<>();
-		String sql = "select * from livro where nome = ?;";
+		String sql = "select * from livros;";
 
 		try {
-			PreparedStatement stmt = this.connection.prepareStatement("select * from livros;");
+			PreparedStatement stmt = this.connection.prepareStatement (sql);
+//			stmt.setString(1, livro);
 			ResultSet rs = stmt.executeQuery();
-
+			
 			while (rs.next()) {
 				// criando o objeto Livro
 				Livro livr = new Livro();
