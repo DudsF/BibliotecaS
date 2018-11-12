@@ -29,10 +29,10 @@ public class LivroDAO {
 			stmt.setString(2, livro.getAutor());
 			stmt.setString(3, livro.getEditora());
 			
-			stmt.setDate(4, new java.sql.Date(Livro.getAnoPub().getTimeInMillis()));
+			stmt.setDate(4, new java.sql.Date(livro.getAnoPub().getTimeInMillis()));
+			
 			stmt.setString(5, livro.getEdicao());
 	
-
 			stmt.execute();
 			stmt.close();
 
@@ -87,7 +87,7 @@ public class LivroDAO {
 			stmt.setString(2, livro.getAutor());
 			stmt.setString(3, livro.getEditora());
 			stmt.setString(4, livro.getEdicao());
-			stmt.setDate(5, new java.sql.Date(Livro.getAnoPub().getTimeInMillis()));
+			stmt.setDate(4, new java.sql.Date(livro.getAnoPub().getTimeInMillis()));
 			stmt.setLong(6,livro.getId());
 			stmt.execute();
 			stmt.close();
