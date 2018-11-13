@@ -39,6 +39,7 @@
 					<td>${livro.editora }</td>
 					<td>${livro.anoPub.time }</td>
 					<td>${livro.edicao }</td>
+					<td><a href="/BibliotecaS/livros/remover?id=${livros.id }"> remover </a></td>
 					
 				</tr>
 			</c:forEach>

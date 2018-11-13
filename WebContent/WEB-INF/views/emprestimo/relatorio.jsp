@@ -26,7 +26,7 @@
 					<td>${livro.matricula }</td>		
 					<td>${livro.dataEmprestimo.time }</td>
 					<td>${livro.dataDevolucao.time }</td>
-
+					<td><a href="/BibliotecaS/emprestimo/remover?id=${emprestimo.id }"> remover </a></td>
 				</tr>
 			</c:forEach>
 

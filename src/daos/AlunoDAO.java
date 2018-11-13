@@ -99,10 +99,10 @@ public class AlunoDAO {
 		return true;
 	}
 
-	public boolean remover(Long id) {
+	public boolean remover(Aluno aluno) {
 		try {
 			PreparedStatement stmt = connection.prepareStatement("delete from alunos where id=?;");
-			stmt.setLong(1, id);
+			stmt.setLong(1, aluno.getId());
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {

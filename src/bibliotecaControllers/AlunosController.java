@@ -2,6 +2,8 @@ package bibliotecaControllers;
 
 
 
+
+
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -12,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import daos.AlunoDAO;
 import models.Aluno;
+
 
 @Controller
 public class AlunosController {
@@ -41,4 +44,12 @@ public class AlunosController {
 		model.addObject("alunos", lista);
 		return model;
 	}
+	@RequestMapping ("/alunos/remover")
+	public String remover(Aluno aluno) {
+		System.out.println("Chamou o metodo remover");
+		AlunoDAO alunoDAO = new AlunoDAO();
+		alunoDAO.remover(aluno);
+		
+		return "redirect:../alunos";
+}
 }

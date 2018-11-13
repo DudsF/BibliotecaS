@@ -11,9 +11,10 @@ ul {
 }
 
 body {
+	margin:0px;
 	background-image: url("http://www.saojudastadeu.edu.br/upload/page/biblioteca2.jpg");
     background-repeat: no-repeat;
-	background-size: 1366px 700px;
+	background-size: 1600px 800px;
 }
 
 li {

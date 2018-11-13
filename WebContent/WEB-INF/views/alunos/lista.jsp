@@ -32,6 +32,7 @@
 					<td>${aluno.CPF }</td>
 					<td>${aluno.dataNascimento.time }</td>
 					<td>${aluno.endereco }</td>
+					<td><a href="/BibliotecaS/alunos/remover?id=${aluno.id }"> remover </a></td>
 				</tr>
 			</c:forEach>
 
