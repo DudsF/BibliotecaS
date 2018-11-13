@@ -18,16 +18,16 @@ import models.Livro;
 
 @Controller
 public class EmpController {
-	@RequestMapping("/emprestimos/form")
+	@RequestMapping("/emprestimo/form")
 	public ModelAndView form() {
 		System.out.println("Chamou o meu método");
-		AlunoDAO alunoDao = new AlunoDAO();
-		List<Aluno> listaA = alunoDao.getLista();
+		AlunoDAO alunoDAO = new AlunoDAO();
+		List<Aluno> listaA = alunoDAO.getAlunos();
 
-		LivroDAO livroDao = new LivroDAO();
-		List<Livro> listaL = livroDao.getLista();
+		LivroDAO livroDAO = new LivroDAO();
+		List<Livro> listaL = livroDAO.buscar();
 
-		ModelAndView model = new ModelAndView("emprestimos/formEmprestimo");
+		ModelAndView model = new ModelAndView("emprestimo/form");
 
 		model.addObject("alunos", listaA);
 		model.addObject("livros", listaL);
@@ -36,51 +36,51 @@ public class EmpController {
 
 	}
 
-	@PostMapping("/emprestimos")
+	@PostMapping("/emprestimo/")
 	public String adicionar(Emprestimo emprestimo) {
 		System.out.println("Chamou o método de adicionar");
 		EmprestimoDAO emprestimoDAO = new EmprestimoDAO();
 		emprestimoDAO.inserir(emprestimo);
 
-		return "redirect:/emprestimos";
+		return "redirect:/emprestimo/";
 	}
 
-	@GetMapping("/emprestimos")
+	@GetMapping("/emprestimo/")
 	public ModelAndView listar() {
 		System.out.println("Chamou o metódo de listagem");
 		EmprestimoDAO emprestimoDao = new EmprestimoDAO();
 		List<Emprestimo> lista = emprestimoDao.getLista();
-		ModelAndView model = new ModelAndView("emprestimos/listaEmprestimo");
-		model.addObject("emprestimos", lista);
+		ModelAndView model = new ModelAndView("emprestimo/list");
+		model.addObject("emprestimo", lista);
 		return model;
 	}
 
-	@GetMapping("/emprestimos/abertos")
+	@GetMapping("/emprestimo/abertos")
 	public ModelAndView listarAbertos() {
 		System.out.println("Chamou o metódo de listagem");
 		EmprestimoDAO emprestimoDao = new EmprestimoDAO();
 		List<Emprestimo> lista = emprestimoDao.getListaAbertos();
-		ModelAndView model = new ModelAndView("emprestimos/listaEmpreAbertos");
-		model.addObject("emprestimos", lista);
+		ModelAndView model = new ModelAndView("emprestimo/listaEmpreAbertos");
+		model.addObject("emprestimo", lista);
 		return model;
 	}
 
-	@GetMapping("/emprestimos/atrasados")
+	@GetMapping("/emprestimo/atrasados")
 	public ModelAndView listarAtrasado() {
 		System.out.println("Chamou o metódo de listagem");
 		EmprestimoDAO emprestimoDao = new EmprestimoDAO();
 		List<Emprestimo> lista = emprestimoDao.getListaAtraso();
-		ModelAndView model = new ModelAndView("emprestimos/listaEmpreAtrasados");
-		model.addObject("emprestimos", lista);
+		ModelAndView model = new ModelAndView("emprestimo/listaEmpreAtrasados");
+		model.addObject("emprestimo", lista);
 		return model;
 	}
-		@RequestMapping("/emprestimos/devolucao")
+		@RequestMapping("/emprestimo/devolucao")
 		public String devolucao(Emprestimo emprestimo) {
 			System.out.println("Chamou o método devolução");
 			EmprestimoDAO emprestimoDao = new EmprestimoDAO();
 			System.out.println(emprestimo);
 			emprestimoDao.devolucao(emprestimo);
-			return "redirect:../emprestimos/abertos";
+			return "redirect:../emprestimo/abertos";
 
 		}
 }

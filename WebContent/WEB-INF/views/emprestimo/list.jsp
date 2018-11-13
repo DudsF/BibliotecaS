@@ -23,7 +23,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="emprestimo" items="${emprestimos }">
+			<c:forEach var="emprestimo" items="${emprestimo }">
 				<tr>
 					<td>${emprestimo.aluno.nome}</td>
 					<td>${emprestimo.livro.titulo }</td>

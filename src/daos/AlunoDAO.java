@@ -44,13 +44,13 @@ public class AlunoDAO {
 		return true;
 	}
 
-	public List<Aluno> buscar(String aluno) {
+	public List<Aluno> buscar() {
 		List<Aluno> result = new ArrayList<>();
 		String sql = "select * from alunos where nome = ?;";
 		
 		try {
 			PreparedStatement stmt = this.connection.prepareStatement(sql);
-			stmt.setString(1, aluno);
+			//stmt.setString(1, aluno);
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {

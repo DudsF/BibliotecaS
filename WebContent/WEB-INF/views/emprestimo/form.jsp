@@ -91,31 +91,32 @@ input[type=submit]:hover {
 	</div>
 	<form action="/BibliotecaS/emprestimo" method="post">
 		
-<div class="row">
-				<div class="col-25">
-					<label for="country">Matricula</label>
-				</div>
-				<div class="col-75">
-					<input type="text" id="lname" name="matricula"
-						placeholder="Digite sua Matricula...">
-				</div>
-			</div>
-
-
-			<div class="row">
-				<div class="col-25">
-					<label for="country">Título</label>
-				</div>
-				<div class="col-75">
-					<input type="text" id="lname" 
-						placeholder="Título do livro...">
-				</div>
-			</div>
 	
 			<div class="row">
-				<input type="submit" value="Cadastrar">
+			<div class="col-25">
+			
+			Alunos <select name="aluno.id">
+				<c:forEach var="aluno" items="${alunos }">
+					<option value="${aluno.id }">${aluno.nome }</option>
+				</c:forEach>
+			</select>
+			</div>
+	
+		
+			<div class="col-25">
+		
+			Livros <select name="livro.id">
+				<c:forEach var="livro" items="${livros }">
+					<option value="${livro.id }">${livro.titulo }</option>
+				</c:forEach>
+			</select>
+			</div>
+		
+		<div class="row">
+		<button type="submit">Adicionar</button>
 			</div>
 			</div>
 	</form>
+	</div>
 </body>
 </html>
