@@ -18,109 +18,69 @@ import models.Livro;
 
 @Controller
 public class EmpController {
-	@RequestMapping("/emprestimo/form")
-	public String form() {
-		return "emprestimo/form";
+	@RequestMapping("/emprestimos/form")
+	public ModelAndView form() {
+		System.out.println("Chamou o meu método");
+		AlunoDAO alunoDao = new AlunoDAO();
+		List<Aluno> listaA = alunoDao.getLista();
+
+		LivroDAO livroDao = new LivroDAO();
+		List<Livro> listaL = livroDao.getLista();
+
+		ModelAndView model = new ModelAndView("emprestimos/formEmprestimo");
+
+		model.addObject("alunos", listaA);
+		model.addObject("livros", listaL);
+
+		return model;
+
 	}
 
+	@PostMapping("/emprestimos")
+	public String adicionar(Emprestimo emprestimo) {
+		System.out.println("Chamou o método de adicionar");
+		EmprestimoDAO emprestimoDAO = new EmprestimoDAO();
+		emprestimoDAO.inserir(emprestimo);
 
-	@PostMapping("/emprestimo")
-	public ModelAndView adicionar(int matriculaAluno , long idLivro) {
-		
-		AlunoDAO alunoDAO = new AlunoDAO();
-		Aluno aluno = new Aluno();
-		aluno = alunoDAO.getByMatricula(matriculaAluno);
-		
-		if (aluno == null) { 
-			ModelAndView model = new ModelAndView("/erro");
-			model.addObject("erro", "Matricula " + matriculaAluno + " não existe no banco de dados.");
-			return model; 
-			
+		return "redirect:/emprestimos";
+	}
+
+	@GetMapping("/emprestimos")
+	public ModelAndView listar() {
+		System.out.println("Chamou o metódo de listagem");
+		EmprestimoDAO emprestimoDao = new EmprestimoDAO();
+		List<Emprestimo> lista = emprestimoDao.getLista();
+		ModelAndView model = new ModelAndView("emprestimos/listaEmprestimo");
+		model.addObject("emprestimos", lista);
+		return model;
+	}
+
+	@GetMapping("/emprestimos/abertos")
+	public ModelAndView listarAbertos() {
+		System.out.println("Chamou o metódo de listagem");
+		EmprestimoDAO emprestimoDao = new EmprestimoDAO();
+		List<Emprestimo> lista = emprestimoDao.getListaAbertos();
+		ModelAndView model = new ModelAndView("emprestimos/listaEmpreAbertos");
+		model.addObject("emprestimos", lista);
+		return model;
+	}
+
+	@GetMapping("/emprestimos/atrasados")
+	public ModelAndView listarAtrasado() {
+		System.out.println("Chamou o metódo de listagem");
+		EmprestimoDAO emprestimoDao = new EmprestimoDAO();
+		List<Emprestimo> lista = emprestimoDao.getListaAtraso();
+		ModelAndView model = new ModelAndView("emprestimos/listaEmpreAtrasados");
+		model.addObject("emprestimos", lista);
+		return model;
+	}
+		@RequestMapping("/emprestimos/devolucao")
+		public String devolucao(Emprestimo emprestimo) {
+			System.out.println("Chamou o método devolução");
+			EmprestimoDAO emprestimoDao = new EmprestimoDAO();
+			System.out.println(emprestimo);
+			emprestimoDao.devolucao(emprestimo);
+			return "redirect:../emprestimos/abertos";
+
 		}
-		long idAluno = aluno.getId();
-				
-		LivroDAO livroDAO = new LivroDAO();
-		Livro livro = new Livro();
-		livro = livroDAO.getById(idLivro);
-		
-		Emprestimo emprestimo = new Emprestimo();
-		emprestimo.setAluno(aluno);
-		emprestimo.setLivro(livro);
-		emprestimo.setDataEmprestimo(Calendar.getInstance());
-		
-		
-		EmprestimoDAO emprestimoDAO = new EmprestimoDAO();
-	
-		if (emprestimoDAO.verificarAluno(idAluno)) {
- 			if(emprestimoDAO.verificarLivro(idLivro)) {
- 				emprestimoDAO.inserir(emprestimo);
- 				return listarEmprestimos();
- 			
- 			
- 			} else {
- 				ModelAndView model = new ModelAndView("/erro");
- 				model.addObject("erro", "Livro indisponível.");
- 				return model;
- 				
- 			}
- 		
- 		} else { 
- 			ModelAndView model = new ModelAndView("/erro");
-			model.addObject("erro", "Aluno já atingiu o limite!");
-			return model; 
- 		}
-	}
-	
-	@PostMapping("/emprestimo/devolucao")
-	public String devolucao(long idAluno, long idLivro){
-		
-		Aluno aluno = new Aluno();
-		Livro livro = new Livro();
-		Emprestimo emprestimo = new Emprestimo();
-		
-		
-		AlunoDAO alunoDAO = new AlunoDAO();
-		LivroDAO livroDAO = new LivroDAO();
-		EmprestimoDAO emprestimoDAO = new EmprestimoDAO();
-		
-		aluno = alunoDAO.getById(idAluno);
-		livro = livroDAO.getById(idLivro);
-		
-		emprestimo.setAluno(aluno);		
-		emprestimo.setLivro(livro);
-		
-		emprestimoDAO.devolucao(emprestimo);
-		
-		return "redirect:/emprestimo";
-
-	}
-
-	@GetMapping("/emprestimo")
-	public ModelAndView listarEmprestimos(){
-		EmprestimoDAO emprestimoDAO = new EmprestimoDAO();
-		List<Emprestimo> lista = emprestimoDAO.getEmprestimos();
-		ModelAndView model = new ModelAndView("emprestimo/lista");
-		model.addObject("emprestimos", lista);
-		return model;
-	}
-	
-	@GetMapping("/emprestimo/atrasados")
-	public ModelAndView listarEmprestimosAtrasados(){
-		EmprestimoDAO emprestimoDAO = new EmprestimoDAO();
-		List<Emprestimo> lista = emprestimoDAO.getEmprestimosAtrasados();
-		ModelAndView model = new ModelAndView("emprestimo/lista");
-		model.addObject("emprestimos", lista);
-		return model;
-	}
-	
-	@GetMapping("/emprestimo/ativos")
-	public ModelAndView listarEmprestimosAtivos(){
-		EmprestimoDAO emprestimoDAO = new EmprestimoDAO();
-		List<Emprestimo> lista = emprestimoDAO.getEmprestimosAtivos();
-		ModelAndView model = new ModelAndView("emprestimo/lista");
-		model.addObject("emprestimos", lista);
-		return model;
-	}
-	
-
 }
