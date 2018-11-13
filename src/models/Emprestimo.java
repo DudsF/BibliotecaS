@@ -5,12 +5,19 @@ import java.util.Calendar;
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class Emprestimo {
-
+	private Long id; 
 	private Aluno aluno;
 	private Livro livro;
 	private Calendar dataEmprestimo;
 	private Calendar dataDevolucao;
 	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public Aluno getAluno() {
 		return aluno;
 	}

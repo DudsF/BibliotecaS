@@ -5,42 +5,30 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Listagem de livro</title>
+<title>Insert title here</title>
 </head>
-<style>
-.centralizado {
-	text-align: center;
-	margin: 0 auto;
-}
-</style>
 <body>
 <c:import url= "../menu.jsp"></c:import>
 <div class= "centralizando">
-	<h1>Lista de livros</h1>
+	<h1>Relatório</h1>
 </div>
 	<table border="2">
 		<thead>
 			<tr>
 				
-				<th>Id</th>
-				<th>Título</th>
-				<th>Autor</th>
-				<th>Editora</th>
-				<th>Ano de Publicação</th>
-				<th>Edição</th>
+				<th>Nome</th>
+				<th>Livro</th>
+				<th>Data de Empréstimo</th>
+				
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="livro" items="${livros }">
+			<c:forEach var="emprestimo" items="${emprestimos }">
 				<tr>
-					<td>${livro.id }</td>
-					<td>${livro.titulo }</td>
-					<td>${livro.autor }</td>
-					<td>${livro.editora }</td>
-					<td>${livro.anoPub.time }</td>
-					<td>${livro.edicao }</td>
-					<td><a href="/BibliotecaS/livros/remover?id=${livro.id }"> remover </a></td>
-					
+					<td>${emprestimo.aluno.nome}</td>
+					<td>${emprestimo.livro.titulo }</td>
+					<td>${emprestimo.dataEmprestimo.time }</td>
+					<
 				</tr>
 			</c:forEach>
 
