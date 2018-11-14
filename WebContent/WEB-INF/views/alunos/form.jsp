@@ -103,16 +103,17 @@ input[type=submit]:hover {
 					<label for="fname">Matricula</label>
 				</div>
 				<div class="col-75">
-				<input type="text" id="fname" name="matricula" maxlength="14" placeholder="Sua matricula...">
+				<input type="text" id="fname" name="matricula" maxlength="14" placeholder=" Ex:201510740105">
 				</div>
 			</div>
+			
 
 			<div class="row">
 				<div class="col-25">
 					<label for="lname">Nome</label>
 				</div>
 				<div class="col-75">
-					<input type="text" id="lname" name="nome" placeholder="Seu nome...">
+					<input type="text" id="lname" name="nome" placeholder="Ex: Ana Beatriz">
 				</div>
 			</div>
 
@@ -121,7 +122,7 @@ input[type=submit]:hover {
 					<label for="country">CPF</label>
 				</div>
 				<div class="col-75">
-					<input type="text" id="lname" name="CPF" maxlength="11" placeholder="Digite seu Cpf...">
+					<input type="text" id="lname" name="CPF" maxlength="11" placeholder="Ex: 11122233344">
 				</div>
 			</div>
 
@@ -130,7 +131,7 @@ input[type=submit]:hover {
 					<label for="country">Data de Nascimento</label>
 				</div>
 				<div class="col-75">
-					<input type="text" id="lname" name="dataNascimento" placeholder="Sua data de nascimento...">
+					<input type="text" id="lname" name="dataNascimento" placeholder="Ex: 18/05/1999">
 				</div>
 			</div>
 
@@ -139,7 +140,7 @@ input[type=submit]:hover {
 					<label for="country">Endereço</label>
 				</div>
 				<div class="col-75">
-					<input type="text" id="lname" name="endereco" placeholder=" Seu endereço...">
+					<input type="text" id="lname" name="endereco" placeholder=" Ex: Rua da Esperança">
 				</div>
 			</div>
 

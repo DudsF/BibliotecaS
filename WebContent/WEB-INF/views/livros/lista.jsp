@@ -4,21 +4,64 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Listagem de livro</title>
-</head>
 <style>
-.centralizado {
+
+#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    center; 
+}
+
+#customers td, #customers th {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+#customers tr:nth-child{background-color: #F6CED8;}
+
+#customers tr:hover {background-color: lavender;}
+
+#customers th {
+	
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: LightCoral;
+    color: white;
+    }
+    
+    
+    .container {
+ 	position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    transform: translateY(-50%) translateX(-50%);
+	center;
+	border-radius: 5px;
+	background-color: #ccc;
+	padding: 20px;
+}
+.centralizar {
+	-webkit-text-stroke-width: 1px; 
+    -webkit-text-stroke-color: #000;
 	text-align: center;
-	margin: 0 auto;
+	color: LightCoral ;
 }
 </style>
+<title>Listagem de livro</title>
+</head>
 <body>
 <c:import url= "../menu.jsp"></c:import>
-<div class= "centralizando">
-	<h1>Lista de livros</h1>
-</div>
-	<table border="2">
+	<div class="container">
+		<div class= "centralizar">
+			<h1>Lista de livros</h1>
+		</div>
+<table id="customers">
+	
 		<thead>
 			<tr>
 				
@@ -47,5 +90,7 @@
 		</tbody>
 
 	</table>
+	
+	</div>
 </body>
 </html>

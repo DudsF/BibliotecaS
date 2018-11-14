@@ -1,6 +1,6 @@
 package bibliotecaControllers;
 
-import java.util.Calendar;
+
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -36,8 +36,8 @@ public class EmpController {
 
 	}
 
-	@PostMapping("/emprestimo/")
-	public String adicionar(Emprestimo emprestimo) {
+	@PostMapping("/emprestimo")
+	public String inserir(Emprestimo emprestimo) {
 		System.out.println("Chamou o método de adicionar");
 		EmprestimoDAO emprestimoDAO = new EmprestimoDAO();
 		emprestimoDAO.inserir(emprestimo);
@@ -45,11 +45,11 @@ public class EmpController {
 		return "redirect:/emprestimo/";
 	}
 
-	@GetMapping("/emprestimo/")
+	@GetMapping("/emprestimo")
 	public ModelAndView listar() {
 		System.out.println("Chamou o metódo de listagem");
-		EmprestimoDAO emprestimoDao = new EmprestimoDAO();
-		List<Emprestimo> lista = emprestimoDao.getLista();
+		EmprestimoDAO emprestimoDAO = new EmprestimoDAO();
+		List<Emprestimo> lista = emprestimoDAO.getLista();
 		ModelAndView model = new ModelAndView("emprestimo/list");
 		model.addObject("emprestimo", lista);
 		return model;

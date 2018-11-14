@@ -61,7 +61,7 @@ input[type=submit]:hover {
 }
 .col-25 {
 	float: left;
-	width: 25%;
+	width: 15%;
 	margin-top: 8px;
 }
 
@@ -92,29 +92,39 @@ input[type=submit]:hover {
 	<form action="/BibliotecaS/emprestimo" method="post">
 		
 	
-			<div class="row">
-			<div class="col-25">
+		<div class="row">
 			
-			Alunos <select name="aluno.id">
+				<div class="col-25">
+					<label for="fname">Aluno</label>
+				</div>
+				
+				<div class="col-75">
+				<select name="aluno.id">
 				<c:forEach var="aluno" items="${alunos }">
 					<option value="${aluno.id }">${aluno.nome }</option>
 				</c:forEach>
-			</select>
-			</div>
-	
+				</select>
+				</div>
+		</div>
 		
-			<div class="col-25">
 		
-			Livros <select name="livro.id">
+		<div class="row">
+		
+				<div class="col-25">
+					<label for="fname">Livro</label>
+				</div>
+				
+				<div class="col-75">
+				<select name="livro.id">
 				<c:forEach var="livro" items="${livros }">
 					<option value="${livro.id }">${livro.titulo }</option>
 				</c:forEach>
-			</select>
-			</div>
+				</select>
+				</div>
+		</div>
 		
 		<div class="row">
-		<button type="submit">Adicionar</button>
-			</div>
+				<input type="submit" value="Emprestar">
 			</div>
 	</form>
 	</div>

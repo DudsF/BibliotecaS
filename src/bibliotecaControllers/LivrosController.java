@@ -8,9 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import daos.AlunoDAO;
+
 import daos.LivroDAO;
-import models.Aluno;
 import models.Livro;
 
 @Controller

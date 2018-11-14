@@ -2,7 +2,6 @@ package models;
 
 import java.util.Calendar;
 
-import org.springframework.format.annotation.DateTimeFormat;
 
 public class Emprestimo {
 	private Long id; 

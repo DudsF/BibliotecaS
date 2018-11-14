@@ -97,7 +97,7 @@ input[type=submit]:hover {
 				</div>
 				<div class="col-75">
 				<input type="text" id="fname" name="titulo"
-						placeholder="Título do livro...">
+						placeholder="Ex: A culpa é da estrelas.">
 				</div>
 			</div>
 
@@ -106,7 +106,7 @@ input[type=submit]:hover {
 					<label for="lname">Autor</label>
 				</div>
 				<div class="col-75">
-					<input type="text" id="lname" name="autor" placeholder="Autor do livro...">
+					<input type="text" id="lname" name="autor" placeholder="Ex: John Green">
 				</div>
 			</div>
 
@@ -116,7 +116,7 @@ input[type=submit]:hover {
 				</div>
 				<div class="col-75">
 					<input type="text" id="lname" name="editora"
-						placeholder="Editora do livro...">
+						placeholder="Ex: E. P. Dutton">
 				</div>
 			</div>
 
@@ -127,7 +127,7 @@ input[type=submit]:hover {
 				</div>
 				<div class="col-75">
 					<input type="text" id="lname" name="anoPub"
-						placeholder="Ano de publicação do livro...">
+						placeholder="Ex: 2012">
 				</div>
 			</div>
 
@@ -137,7 +137,7 @@ input[type=submit]:hover {
 				</div>
 				<div class="col-75">
 					<input type="text" id="lname" name="edicao"
-						placeholder=" Edição do livro...">
+						placeholder=" Ex: 1">
 				</div>
 			</div>
 

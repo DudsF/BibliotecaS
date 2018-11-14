@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
+
 import java.util.List;
 
 import models.Aluno;
@@ -22,26 +22,32 @@ public class EmprestimoDAO {
 
 	public boolean inserir( Emprestimo emprestimo) {
 
-		String sql = "insert into emprestimo (matricula, titulo, dataEmprestimo, dataDevolucao) values (?, ?, ?, ?);";
+		String sql = "insert into emprestimo (aluno, livro, dataEmprestimo, dataDevolucao) values (?, ?, ?, ?);";
 	
 	try{
 		
+		
 		PreparedStatement stmt = connection.prepareStatement(sql);
+		
+		Calendar calen = Calendar.getInstance();
+		Long calendario = calen.getTimeInMillis();
+		
 		stmt.setLong(1, emprestimo.getAluno().getId());
 		stmt.setLong(2, emprestimo.getLivro().getId());
-		stmt.setDate(3, new java.sql.Date(emprestimo.getDataEmprestimo().getTimeInMillis()));
+		stmt.setDate(3, new java.sql.Date(calendario));
+		stmt.setDate(4, new java.sql.Date(calendario));
 
 		stmt.execute();
 		stmt.close();
 
 	} catch (SQLException e) {
 		e.printStackTrace();
-		return false;
+		return true;
 	}
 
-	return true;
+	return false;
 }
-	public boolean qtdEmprestimos(Aluno aluno) throws SQLException {
+	public boolean QuantEmprestimos(Aluno aluno) throws SQLException {
 
 		try {
 			PreparedStatement stmt = connection
@@ -180,6 +186,7 @@ public class EmprestimoDAO {
 		return true;
 	}
 
+	
 	public Emprestimo getEmprestimoByID(Long id) {
 		try {
 
