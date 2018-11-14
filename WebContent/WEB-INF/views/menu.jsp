@@ -85,6 +85,8 @@ li.dropdown {
     <a href="javascript:void(0)" class="dropbtn">Emprestimo</a>
     <div class="dropdown-content">
     	<a href="/BibliotecaS/emprestimo/form">Fazer emprestimo</a>
+    	<a href="/BibliotecaS/emprestimo/">Lista de emprestimo</a>
+    	<a href="/BibliotecaS/emprestimo/">Emprestimos atrasado</a>
     	<a href="/BibliotecaS/emprestimo/">Relatório</a>
     	</div>
     </li>
