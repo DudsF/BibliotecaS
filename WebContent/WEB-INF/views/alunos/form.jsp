@@ -103,7 +103,7 @@ input[type=submit]:hover {
 					<label for="fname">Matricula</label>
 				</div>
 				<div class="col-75">
-				<input type="text" id="fname" name="matricula" maxlength="14" placeholder=" Ex:201510740105">
+				<input type="text" id="fname" name="matricula" maxlength="14" placeholder=" Ex:201510740105...">
 				</div>
 			</div>
 			
@@ -122,7 +122,7 @@ input[type=submit]:hover {
 					<label for="country">CPF</label>
 				</div>
 				<div class="col-75">
-					<input type="text" id="lname" name="CPF" maxlength="11" placeholder="Ex: 11122233344">
+					<input type="text" id="lname" name="CPF" maxlength="14" placeholder="Ex: 111.222.333-44">
 				</div>
 			</div>
 
@@ -145,8 +145,10 @@ input[type=submit]:hover {
 			</div>
 
 			<div class="row">
-				<input type="submit" value="Cadastrar">
+				<input type="submit" value="Cadastrar"/>
+			
 			</div>
+			
 		</form>
 	</div>
 

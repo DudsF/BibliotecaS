@@ -41,6 +41,7 @@ public class AlunosController {
 		model.addObject("alunos", lista);
 		return model;
 	}
+	
 	@RequestMapping ("/alunos/remover")
 	public String remover(Aluno aluno) {
 		System.out.println("Chamou o metodo remover");

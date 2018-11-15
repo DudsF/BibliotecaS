@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -58,6 +59,8 @@
 </head>
 <body>
 <c:import url= "../menu.jsp"></c:import>
+<c:import url="../cabecalho.jsp" />
+
 <div class="container">
 	<div class="centralizado">
 		<h1>Lista de alunos</h1>
@@ -82,7 +85,9 @@
 					<td>${aluno.matricula }</td>
 					<td>${aluno.nome }</td>
 					<td>${aluno.CPF }</td>
-					<td>${aluno.dataNascimento.time }</td>
+					<td> <fmt:formatDate value="${aluno.dataNascimento.time}"
+        pattern="dd/MM/yyyy" /> </td>
+					
 					<td>${aluno.endereco }</td>
 					<td><a href="/BibliotecaS/alunos/remover?id=${aluno.id }"> remover </a></td>
 				</tr>

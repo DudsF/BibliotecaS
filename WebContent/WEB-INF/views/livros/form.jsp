@@ -96,8 +96,7 @@ input[type=submit]:hover {
 					<label for="fname">Título</label>
 				</div>
 				<div class="col-75">
-				<input type="text" id="fname" name="titulo"
-						placeholder="Ex: A culpa é da estrelas.">
+				<input type="text" id="fname" name="titulo"placeholder="Ex: A culpa é da estrelas.">
 				</div>
 			</div>
 
@@ -115,8 +114,7 @@ input[type=submit]:hover {
 					<label for="country">Editora</label>
 				</div>
 				<div class="col-75">
-					<input type="text" id="lname" name="editora"
-						placeholder="Ex: E. P. Dutton">
+					<input type="text" id="lname" name="editora"placeholder="Ex: E. P. Dutton">
 				</div>
 			</div>
 
@@ -126,8 +124,7 @@ input[type=submit]:hover {
 					<label for="country">Ano de publicação</label>
 				</div>
 				<div class="col-75">
-					<input type="text" id="lname" name="anoPub"
-						placeholder="Ex: 2012">
+					<input type="text" id="lname" name="anoPub" maxlength="14"placeholder="Ex: 2012">
 				</div>
 			</div>
 
@@ -136,8 +133,7 @@ input[type=submit]:hover {
 					<label for="country">Edição</label>
 				</div>
 				<div class="col-75">
-					<input type="text" id="lname" name="edicao"
-						placeholder=" Ex: 1">
+					<input type="text" id="lname" name="edicao"placeholder=" Ex: 1">
 				</div>
 			</div>
 

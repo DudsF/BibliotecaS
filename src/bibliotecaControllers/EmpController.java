@@ -55,22 +55,22 @@ public class EmpController {
 		return model;
 	}
 
-	@GetMapping("/emprestimo/abertos")
+	@GetMapping("/emprestimo/empAbertos")
 	public ModelAndView listarAbertos() {
-		System.out.println("Chamou o metódo de listagem");
+		System.out.println("Chamou o metódo de listagem de emprestimos abertos");
 		EmprestimoDAO emprestimoDao = new EmprestimoDAO();
-		List<Emprestimo> lista = emprestimoDao.getListaAbertos();
-		ModelAndView model = new ModelAndView("emprestimo/listaEmpreAbertos");
+		List<Emprestimo> lista = emprestimoDao.getAcessiveis();
+		ModelAndView model = new ModelAndView("emprestimo/empAbertos");
 		model.addObject("emprestimo", lista);
 		return model;
 	}
 
-	@GetMapping("/emprestimo/atrasados")
+	@GetMapping("/emprestimo/empAtrasados")
 	public ModelAndView listarAtrasado() {
 		System.out.println("Chamou o metódo de listagem");
 		EmprestimoDAO emprestimoDao = new EmprestimoDAO();
-		List<Emprestimo> lista = emprestimoDao.getListaAtraso();
-		ModelAndView model = new ModelAndView("emprestimo/listaEmpreAtrasados");
+		List<Emprestimo> lista = emprestimoDao.getAtrasados();
+		ModelAndView model = new ModelAndView("emprestimo/empAtrasados");
 		model.addObject("emprestimo", lista);
 		return model;
 	}
@@ -80,7 +80,7 @@ public class EmpController {
 			EmprestimoDAO emprestimoDao = new EmprestimoDAO();
 			System.out.println(emprestimo);
 			emprestimoDao.devolucao(emprestimo);
-			return "redirect:../emprestimo/abertos";
+			return "redirect:../emprestimo/empAbertos";
 
 		}
 }

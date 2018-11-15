@@ -71,7 +71,7 @@ public class EmprestimoDAO {
 
 	}
 
-	public List<Emprestimo> getListaAbertos() {
+	public List<Emprestimo> getAcessiveis() {
 		try {
 
 			List<Emprestimo> emprestimo = new ArrayList<Emprestimo>();
@@ -109,7 +109,7 @@ public class EmprestimoDAO {
 
 	}
 
-	public List<Emprestimo> getListaAtraso() {
+	public List<Emprestimo> getAtrasados() {
 		try {
 
 			List<Emprestimo> emprestimo = new ArrayList<Emprestimo>();
