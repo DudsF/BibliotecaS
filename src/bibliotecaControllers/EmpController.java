@@ -81,7 +81,7 @@ public class EmpController {
 	}
 
 
-	@GetMapping("/emprestimo/")
+	@GetMapping("/emprestimo")
 	public ModelAndView listar() {
 		System.out.println("Chamou o metódo de listagem");
 		EmprestimoDAO emprestimoDAO = new EmprestimoDAO();

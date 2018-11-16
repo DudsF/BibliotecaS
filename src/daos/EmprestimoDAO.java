@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
+
 import java.util.List;
 
 import models.Aluno;
@@ -23,7 +23,7 @@ public class EmprestimoDAO {
 
 	public boolean inserir( Emprestimo emprestimo) {
 
-		String sql = "insert into emprestimo (aluno, livro, dataEmprestimo) values ( ?, ?, ?);";
+		String sql = "insert into emprestimo (alunoID, livroID, dataEmprestimo) values ( ?, ?, ?);";
 	
 	try{
 		
@@ -49,15 +49,15 @@ public class EmprestimoDAO {
 	return true;
 }
 
-	public boolean QuantEmprestimos(Aluno aluno) {
+	public boolean QuantEmprestimos(Aluno alunoID) {
 		
-		String sql =  "select * from emprestimo where aluno = ? and dataDevolucao IS NULL;";
+		String sql =  "select * from emprestimo where alunoID = ? and dataDevolucao IS NULL;";
 		int cont = 0;
 		
 		try {
 			PreparedStatement stmt = connection
 					.prepareStatement(sql);
-		//stmt.setLong(1, aluno.getId());
+		stmt.setLong(1, alunoID.getId());
 		ResultSet rs = stmt.executeQuery();
 		
 		while (rs.next()) {
@@ -76,15 +76,15 @@ public class EmprestimoDAO {
 	return true;
 
 }
-	public boolean QuantEmprestimos(Livro livro) {
+	public boolean QuantEmprestimos(Livro livroID) {
 		
-		String sql =  "select * from emprestimo where livro = ? and dataDevolucao IS NULL;";
+		String sql =  "select * from emprestimo where livroID = ? and dataDevolucao IS NULL;";
 		int cont = 0;
 		
 		try {
 			PreparedStatement stmt = connection
 					.prepareStatement(sql);
-		stmt.setLong(1, livro.getId());
+		stmt.setLong(1, livroID.getId());
 		ResultSet rs = stmt.executeQuery();
 		
 		while (rs.next()) {
@@ -121,8 +121,8 @@ public class EmprestimoDAO {
 					Calendar data = Calendar.getInstance();
 					data.setTime(rs.getDate("dataEmprestimo"));
 					emprestimo1.setDataEmprestimo(data);
-					Aluno aluno = new AlunoDAO().getById(rs.getLong("aluno"));
-					Livro livro = new LivroDAO().getById(rs.getLong("livro"));
+					Aluno aluno = new AlunoDAO().getById(rs.getLong("alunoID"));
+					Livro livro = new LivroDAO().getById(rs.getLong("livroID"));
 					emprestimo1.setAluno(aluno);
 					emprestimo1.setLivro(livro);
 
@@ -158,8 +158,8 @@ public class EmprestimoDAO {
 				Calendar data = Calendar.getInstance();
 				data.setTime(rs.getDate("dataEmprestimo"));
 				emprestimo1.setDataEmprestimo(data);
-				Aluno aluno = new AlunoDAO().getById(rs.getLong("aluno"));
-				Livro livro = new LivroDAO().getById(rs.getLong("livro"));
+				Aluno aluno = new AlunoDAO().getById(rs.getLong("alunoID"));
+				Livro livro = new LivroDAO().getById(rs.getLong("livroID"));
 				emprestimo1.setAluno(aluno);
 				emprestimo1.setLivro(livro);
 
@@ -197,7 +197,7 @@ public class EmprestimoDAO {
 	}
 
 	public boolean devolucao(Emprestimo emprestimo) {
-		String sql = "update emprestimo set dataDevolucao=? where aluno=? and livro=?;";
+		String sql = "update emprestimo set dataDevolucao=? where alunoID=? and livro=?;";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setDate(1, new java.sql.Date(Calendar.getInstance().getTimeInMillis()));
@@ -236,9 +236,9 @@ public class EmprestimoDAO {
 	private Emprestimo formacaoEmprestimo(ResultSet rs) throws SQLException {
 		Emprestimo emprestimo = new Emprestimo();
 
-		Aluno aluno = new AlunoDAO().getById(rs.getLong("aluno"));
+		Aluno aluno = new AlunoDAO().getById(rs.getLong("alunoID"));
 		emprestimo.setAluno(aluno);
-		Livro livro = new LivroDAO().getById(rs.getLong("livro"));
+		Livro livro = new LivroDAO().getById(rs.getLong("livroID"));
 		emprestimo.setLivro(livro);
 
 		Calendar data = Calendar.getInstance();

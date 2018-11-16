@@ -5,8 +5,8 @@ import java.util.Calendar;
 
 public class Emprestimo {
 	private Long id; 
-	private Aluno aluno;
-	private Livro livro;
+	private Aluno alunoID;
+	private Livro livroID;
 	private Calendar dataEmprestimo;
 	private Calendar dataDevolucao;
 	
@@ -18,16 +18,16 @@ public class Emprestimo {
 		this.id = id;
 	}
 	public Aluno getAluno() {
-		return aluno;
+		return alunoID;
 	}
 	public void setAluno(Aluno aluno) {
-		this.aluno = aluno;
+		this.alunoID = aluno;
 	}
 	public Livro getLivro() {
-		return livro;
+		return livroID;
 	}
 	public void setLivro(Livro livro) {
-		this.livro = livro;
+		this.livroID = livro;
 	}
 	public Calendar getDataEmprestimo() {
 		return dataEmprestimo;

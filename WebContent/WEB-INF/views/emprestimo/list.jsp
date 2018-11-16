@@ -105,17 +105,6 @@
 			</c:forEach>
 
 		</tbody>
-		<div class="hero is-vcentered" style="width:70%; margin: 0 auto">
-
-	<div class="container">
-	<h2 class="subtitle">Clique nos botões abaixo para filtrar os emprestimos:</h2>
-
-	<a href="/BibliotecaS/emprestimo/" class="button is-one-third is-info" style="margin-bottom: 0.5rem; width: 20%">Todos os Emprestimos</a>	
-	<a href="/BibliotecaS/emprestimo/listarAberto" class="button is-one-third is-success" style="margin-bottom: 0.5rem; width: 20%">Emprestimos Abertos</a>
-	<a href="/BibliotecaS/emprestimo/listarAtrasados" class="button is-one-third is-danger" style="margin-bottom: 0.5rem; width: 20%">Emprestimos Atrasados</a>
-	
-</div>
-		
 
 	</table>
 	</div>
