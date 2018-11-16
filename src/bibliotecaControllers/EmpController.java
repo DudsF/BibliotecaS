@@ -64,7 +64,7 @@ public class EmpController {
 		EmprestimoDAO emprestimoDAO = new EmprestimoDAO();
 		List<Emprestimo> lista = emprestimoDAO.getAcessiveis();
 		ModelAndView model = new ModelAndView("emprestimo/list");
-		model.addObject("emprestimo", lista);
+		model.addObject("emprestimo1", lista);
 		return model;
 	}
 
@@ -78,22 +78,15 @@ public class EmpController {
 		return model;
 	}
 		@RequestMapping("/emprestimo/devolucao")
-		public String devolucao(Long aluno, Long livro ) {
+		public String devolucao(Emprestimo emprestimo ) {
 			System.out.println("Chamou o método devolução");
-			Aluno aluno1 = new Aluno();
-			Livro livro1 = new Livro();
-			Emprestimo emprestimo = new Emprestimo();
-			AlunoDAO alunoDAO = new AlunoDAO();
-			LivroDAO livroDAO = new LivroDAO();
 			EmprestimoDAO emprestimoDAO = new EmprestimoDAO();
-			aluno1 = alunoDAO.getById(aluno);
-			emprestimo.setAluno(aluno1);		
-			livro1 = livroDAO.getById(livro);
-			emprestimo.setLivro(livro1);
-			
+			System.out.println(emprestimo);
 			emprestimoDAO.devolucao(emprestimo);
+			return "redirect:../emprestimos/empAbertos";
 			
-			return "redirect:../emprestimo";
+			
+		
 
 		}
 }

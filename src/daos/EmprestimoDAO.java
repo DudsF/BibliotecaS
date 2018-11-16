@@ -202,7 +202,7 @@ public class EmprestimoDAO {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setDate(1, new java.sql.Date(Calendar.getInstance().getTimeInMillis()));
 			stmt.setLong(2, emprestimo.getAluno().getId());
-			stmt.setLong(2, emprestimo.getLivro().getId());
+			stmt.setLong(3, emprestimo.getLivro().getId());
 			
 			stmt.execute();
 			stmt.close();

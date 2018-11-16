@@ -1,5 +1,3 @@
-<%@page import="java.text.SimpleDateFormat"%>
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -9,9 +7,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Listagem de emprestimos abertos</title>
+</head>
 <style>
-
-
 #customers {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
@@ -60,34 +58,27 @@
 	color: LightCoral ;
 }
 </style>
-<title>Listagem de emprestimo</title>
-</head>
-
 <body>
 <c:import url= "../menu.jsp"></c:import>
-<c:import url= "../emprestado.jsp"></c:import>
 <div class="container">
 
 <div class= "centraliza">
-	<h1>Lista de emprestimo</h1>
+<h1>Emprestimos Abertos</h1>
 </div>
-
 <table id="customers">
 		<thead>
 			<tr>
-				
-				<th>Nome</th>
 				<th>Livro</th>
-				<th>Data de Empréstimo</th>
-			
-				
+				<th>Matrícula</th>
+				<th>Data do emprestimo</th>
+				<th>Devolução</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="emprestimo" items="${emprestimo }">
+			<c:forEach var="emprestimo" items="${emprestimo}">
 				<tr>
-					<td>${emprestimo.aluno.nome}</td>
 					<td>${emprestimo.livro.titulo}</td>
+					<td>${emprestimo.aluno.matricula}</td>
 					<td><fmt:formatDate value="${emprestimo.dataEmprestimo.time}" pattern="dd/MM/yyyy" /></td>
 					<c:if test="${empty emprestimo.dataDevolucao}">
 							<td class="is-one-third">
@@ -102,11 +93,12 @@
 							<td><fmt:formatDate value="${emprestimo.dataDevolucao.time}" pattern="dd/MM/yyyy" /></td>
 						</c:if>
 				</tr>
+					
+					<td><a href="/BibliotecaS/emprestimo/devolucao?id=${emprestimo.id}">Fazer Devolução</a></td>
+				</tr>
 			</c:forEach>
-
 		</tbody>
-
 	</table>
-	</div>
+</div>
 </body>
 </html>
