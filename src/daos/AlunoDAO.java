@@ -143,12 +143,12 @@ public class AlunoDAO {
 		return result;
 	}
 	
-	public Aluno getByMatricula(int matricula) {
+	public Aluno getByMatricula(String matricula) {
 		Aluno result = null;
 
 		try {
 			PreparedStatement stmt = this.connection.prepareStatement("select * from alunos where matricula = ?;");
-			stmt.setInt(1, matricula);
+			stmt.setString(1, matricula);
 			ResultSet rs = stmt.executeQuery();
 
 			if (rs.next()) {

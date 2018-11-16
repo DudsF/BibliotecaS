@@ -1,6 +1,9 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    
     <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -76,7 +79,7 @@
 				<th>Nome</th>
 				<th>Livro</th>
 				<th>Data de Empréstimo</th>
-				
+				<th>Data de Devolução</th>
 				
 			</tr>
 		</thead>
@@ -86,11 +89,33 @@
 					<td>${emprestimo.aluno.nome}</td>
 					<td>${emprestimo.livro.titulo }</td>
 					<td><fmt:formatDate value="${emprestimo.dataEmprestimo.time}" pattern="dd/MM/yyyy" /></td>
-					
+					<c:if test="${empty emprestimo.dataDevolucao}">
+							<td class="is-one-third">
+								<form method="POST" action="/BibliotecaS/emprestimo/devolucao"> 
+									<input type="hidden" name="aluno" value="${emprestimo.aluno.id}"/>
+									<input type="hidden" name="livro" value="${emprestimo.livro.id}"/>
+									<button type="submit" class="button is-info">Fazer Devolução</button>  
+								</form>
+							</td>
+						</c:if>
+						<c:if test="${not empty emprestimo.dataDevolucao}">
+							<td><fmt:formatDate value="${emprestimo.dataDevolucao.time}" pattern="dd/MM/yyyy" /></td>
+						</c:if>
 				</tr>
 			</c:forEach>
 
 		</tbody>
+		<div class="hero is-vcentered" style="width:70%; margin: 0 auto">
+
+	<div class="container">
+	<h2 class="subtitle">Clique nos botões abaixo para filtrar os emprestimos:</h2>
+
+	<a href="/BibliotecaS/emprestimo/" class="button is-one-third is-info" style="margin-bottom: 0.5rem; width: 20%">Todos os Emprestimos</a>	
+	<a href="/BibliotecaS/emprestimo/listarAberto" class="button is-one-third is-success" style="margin-bottom: 0.5rem; width: 20%">Emprestimos Abertos</a>
+	<a href="/BibliotecaS/emprestimo/listarAtrasados" class="button is-one-third is-danger" style="margin-bottom: 0.5rem; width: 20%">Emprestimos Atrasados</a>
+	
+</div>
+		
 
 	</table>
 	</div>

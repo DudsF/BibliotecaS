@@ -112,12 +112,12 @@ public class LivroDAO {
 		return true;
 	}
 
-	public Livro getById(Long id) {
+	public Livro getById( Long id) {
 		Livro result = null;
 
 		try {
 			PreparedStatement stmt = this.connection.prepareStatement("select * from livros where id = ?;");
-			stmt.setLong(1, id);
+			//stmt.setLong(1, id);
 			ResultSet rs = stmt.executeQuery();
 
 			if (rs.next()) {
