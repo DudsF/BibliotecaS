@@ -38,47 +38,14 @@ public class EmpController {
 	}
 
 	@PostMapping("/emprestimo")
-	public ModelAndView inserir(String matricula , Long livro ) {
+	public String inserir(Emprestimo emprestimo) {
 		System.out.println("Chamou o método de adicionar");
-		AlunoDAO alunoDAO = new AlunoDAO();
-		Aluno aluno = new Aluno();
-		aluno = alunoDAO.getByMatricula(matricula);
-	
-		if (aluno == null) { 
-			ModelAndView model = new ModelAndView("emprestimo/list");
-			model.addObject("erro", "Matricula " + matricula + " não existe no banco de dados.");
-			return model; 
-			
-		}
-		long Aluno = aluno.getId();
-		LivroDAO livroDAO = new LivroDAO();
-		Livro livro1 = new Livro();
-		livro1 = livroDAO.getById(livro);
-		Emprestimo emprestimo = new Emprestimo();
-		emprestimo.setAluno(aluno);
-		emprestimo.setLivro(livro1);
-		emprestimo.setDataEmprestimo(Calendar.getInstance());
 		EmprestimoDAO emprestimoDAO = new EmprestimoDAO();
-		if (emprestimoDAO.QuantEmprestimos(aluno)) {
- 			if(emprestimoDAO.QuantEmprestimos(livro1)) {
- 				emprestimoDAO.inserir(emprestimo);
- 				return listar();
- 			
- 			
- 			} else {
- 				ModelAndView model = new ModelAndView("emprestimo/falho");
- 				model.addObject("Falhou");
- 				return model;
- 				
- 			}
-		}else { 
- 			ModelAndView model = new ModelAndView("/list");
-			model.addObject("erro", "Aluno já possui 3 emprestimos.");
-			return model; 
- 		}
-	
- 	
+		emprestimoDAO.inserir(emprestimo);
+		return "redirect:/emprestimo";
 	}
+ 	
+	
 
 
 	@GetMapping("/emprestimo")

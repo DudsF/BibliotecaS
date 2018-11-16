@@ -197,7 +197,7 @@ public class EmprestimoDAO {
 	}
 
 	public boolean devolucao(Emprestimo emprestimo) {
-		String sql = "update emprestimo set dataDevolucao=? where alunoID=? and livro=?;";
+		String sql = "update emprestimo set dataDevolucao=? where alunoID=? and livroID=?;";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setDate(1, new java.sql.Date(Calendar.getInstance().getTimeInMillis()));
