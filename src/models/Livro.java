@@ -9,9 +9,8 @@ public class Livro {
 	private String titulo;
 	private String autor;
 	private String editora;
-	@DateTimeFormat(pattern="YYYY")
-	private Calendar anoPub;
-	private String edicao;
+	private int anoPub;
+	private int edicao;
 
 	@Override
 	public String toString() {
@@ -51,19 +50,19 @@ public class Livro {
 		this.editora = editora;
 	}
 
-	public Calendar getAnoPub() {
+	public int getAnoPub() {
 		return anoPub;
 	}
 
-	public void setAnoPub(Calendar anoPub) {
+	public void setAnoPub(int anoPub) {
 		this.anoPub = anoPub;
 	}
 
-	public String getEdicao() {
+	public int getEdicao() {
 		return edicao;
 	}
 
-	public void setEdicao(String edicao) {
+	public void setEdicao(int edicao) {
 		this.edicao = edicao;
 	}
 }

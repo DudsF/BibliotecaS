@@ -89,7 +89,7 @@ input[type=submit]:hover {
 	<div class="centralizado">
 		<h1>Emprestimo</h1>
 	</div>
-	<form action="/BibliotecaS/emprestimo" method="post">
+	<form action="/BibliotecaS/emprestimo/" method="post">
 		
 	
 		<div class="row">

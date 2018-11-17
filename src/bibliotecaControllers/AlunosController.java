@@ -26,7 +26,6 @@ public class AlunosController {
 	@PostMapping("/alunos")
 	public String adicionar(Aluno aluno) {
 		System.out.println("Chamou o método de adicionar");
-		System.out.println(aluno);
 		AlunoDAO alunoDAO = new AlunoDAO();
 		alunoDAO.inserir(aluno);
 		return "redirect:alunos/";

@@ -5,29 +5,35 @@ import java.util.Calendar;
 
 public class Emprestimo {
 	private Long id; 
-	private Aluno alunoID;
-	private Livro livroID;
+	private Aluno aluno;
+	private Livro livro;
 	private Calendar dataEmprestimo;
 	private Calendar dataDevolucao;
+	
+	@Override
+	public String toString() {
+		return "Emprestimo [id=" + id + ", aluno=" + aluno + ", livro=" + livro + ", dataEmprestimo=" + dataEmprestimo
+				+ ", dataDevolucao=" + dataDevolucao + "]";
+	}
+	
 	
 	public Long getId() {
 		return id;
 	}
-
 	public void setId(Long id) {
 		this.id = id;
 	}
 	public Aluno getAluno() {
-		return alunoID;
+		return aluno;
 	}
-	public void setAluno(Aluno aluno) {
-		this.alunoID = aluno;
+	public void setAluno(Aluno alunoID) {
+		this.aluno = alunoID;
 	}
 	public Livro getLivro() {
-		return livroID;
+		return livro;
 	}
 	public void setLivro(Livro livro) {
-		this.livroID = livro;
+		this.livro = livro;
 	}
 	public Calendar getDataEmprestimo() {
 		return dataEmprestimo;
@@ -41,7 +47,8 @@ public class Emprestimo {
 	public void setDataDevolucao(Calendar dataDevolucao) {
 		this.dataDevolucao = dataDevolucao;
 	}
+
+	}
+	
 	
 
-
-}

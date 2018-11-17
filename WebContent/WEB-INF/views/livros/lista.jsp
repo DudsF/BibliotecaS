@@ -83,9 +83,7 @@
 					<td>${livro.titulo }</td>
 					<td>${livro.autor }</td>
 					<td>${livro.editora }</td>
-					<td><fmt:formatDate value="${livro.anoPub.time}"
-        pattern="yyyy" /> </td>
-					
+					<td>{livro.anoPub} </td>
 					<td>${livro.edicao }</td>
 					<td><a href="/BibliotecaS/livros/remover?id=${livro.id }"> remover </a></td>
 					

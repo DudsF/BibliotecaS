@@ -23,17 +23,17 @@ public class AlunoDAO {
 		String sql = "insert into alunos (matricula, nome, CPF, dataNascimento, endereco) values (?, ?, ?, ?, ?);";
 
 		try {
-			PreparedStatement stmt = connection.prepareStatement(sql);
+			PreparedStatement a = connection.prepareStatement(sql);
 
-			stmt.setString(1, aluno.getMatricula());
-			stmt.setString(2, aluno.getNome());
-			stmt.setString(3, aluno.getCPF());
+			a.setString(1, aluno.getMatricula());
+			a.setString(2, aluno.getNome());
+			a.setString(3, aluno.getCPF());
 
-			stmt.setDate(4, new java.sql.Date(aluno.getDataNascimento().getTimeInMillis()));
-			stmt.setString(5, aluno.getEndereco());
+			a.setDate(4, new java.sql.Date(aluno.getDataNascimento().getTimeInMillis()));
+			a.setString(5, aluno.getEndereco());
 
-			stmt.execute();
-			stmt.close();
+			a.execute();
+			a.close();
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -44,9 +44,9 @@ public class AlunoDAO {
 		return true;
 	}
 
-	public List<Aluno> buscar() {
+	public List<Aluno> getLista() {
 		List<Aluno> result = new ArrayList<>();
-		String sql = "select * from alunos where nome = ?;";
+		String sql = "select * from alunos";
 		
 		try {
 			PreparedStatement stmt = this.connection.prepareStatement(sql);
@@ -62,9 +62,9 @@ public class AlunoDAO {
 				alun.setCPF(rs.getString("CPF"));
 
 				// montando a data atrav�s do Calendar
-				Calendar data = Calendar.getInstance();
-				data.setTime(rs.getDate("dataNascimento"));
-				alun.setDataNascimento(data);
+				Calendar dataNascimento = Calendar.getInstance();
+				dataNascimento.setTime(rs.getDate("dataNascimento"));
+				alun.setDataNascimento(dataNascimento);
 
 				alun.setEndereco(rs.getString("endereco"));
 
@@ -73,11 +73,11 @@ public class AlunoDAO {
 			}
 			rs.close();
 			stmt.close();
+			return result;
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 
-		return result;
 	}
 
 	public boolean alterar(Aluno aluno) {
@@ -193,10 +193,38 @@ public class AlunoDAO {
 			}
 			rs.close();
 			stmt.close();
+
+			return result;
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 
-		return result;
 	}
+	public Aluno getAlunoByID(Long id) {
+		try {
+
+			Aluno alun = null;
+			PreparedStatement stmt = this.connection.prepareStatement("select * from alunos where id=?;");
+			stmt.setLong(1, id);
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) {
+				alun = new Aluno();
+				alun.setId(rs.getLong("id"));
+				alun.setNome(rs.getString("nome"));
+				alun.setCPF(rs.getString("cpf"));
+				alun.setMatricula(rs.getString("matricula"));
+				Calendar dataNascimento = Calendar.getInstance();
+				dataNascimento.setTime(rs.getDate("dataNascimento"));
+				alun.setDataNascimento(dataNascimento);
+			}
+			rs.close();
+			stmt.close();
+			return alun;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+
+	}
+
 }

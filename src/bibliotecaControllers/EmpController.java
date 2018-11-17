@@ -1,7 +1,7 @@
 package bibliotecaControllers;
 
 
-import java.util.Calendar;
+
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -26,7 +26,7 @@ public class EmpController {
 		List<Aluno> listaA = alunoDAO.getAlunos();
 
 		LivroDAO livroDAO = new LivroDAO();
-		List<Livro> listaL = livroDAO.buscar();
+		List<Livro> listaL = livroDAO.getLivro();
 
 		ModelAndView model = new ModelAndView("emprestimo/form");
 
@@ -78,10 +78,11 @@ public class EmpController {
 		return model;
 	}
 		@RequestMapping("/emprestimo/devolucao")
-		public String devolucao(Emprestimo emprestimo ) {
+		public String devolucao(Long id ) {
 			System.out.println("Chamou o método devolução");
 			EmprestimoDAO emprestimoDAO = new EmprestimoDAO();
-			System.out.println(emprestimo);
+			Emprestimo emprestimo = emprestimoDAO.getEmprestimoByID(id);
+			System.out.println(id);
 			emprestimoDAO.devolucao(emprestimo);
 			return "redirect:../emprestimos/empAbertos";
 			

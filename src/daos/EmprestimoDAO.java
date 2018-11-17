@@ -43,29 +43,29 @@ public class EmprestimoDAO {
 
 	} catch (SQLException e) {
 		e.printStackTrace();
-		return false;
+		return true;
 	}
 
-	return true;
+	return false;
 }
 
-	public boolean QuantEmprestimos(Aluno alunoID) {
+	public boolean QuantEmprestimos(Aluno AlunoID)  {
 		
 		String sql =  "select * from emprestimo where alunoID = ? and dataDevolucao IS NULL;";
-		int cont = 0;
+		int c = 0;
 		
 		try {
 			PreparedStatement stmt = connection
 					.prepareStatement(sql);
-		stmt.setLong(1, alunoID.getId());
+		stmt.setLong(1, AlunoID.getId());
 		ResultSet rs = stmt.executeQuery();
 		
 		while (rs.next()) {
 			//Contagem de livro com o aluno.
-			cont++;
+			c++;
 		}
 		
-		if (cont >= 3) {
+		if (c >= 3) {
 			return false;
 		}
 	} catch (SQLException e) {
@@ -76,23 +76,23 @@ public class EmprestimoDAO {
 	return true;
 
 }
-	public boolean QuantEmprestimos(Livro livroID) {
+	public boolean QuantEmprestimos1(Livro LivroID)   {
 		
 		String sql =  "select * from emprestimo where livroID = ? and dataDevolucao IS NULL;";
-		int cont = 0;
+		int c = 0;
 		
 		try {
 			PreparedStatement stmt = connection
 					.prepareStatement(sql);
-		stmt.setLong(1, livroID.getId());
+		stmt.setLong(1, LivroID.getId());
 		ResultSet rs = stmt.executeQuery();
 		
 		while (rs.next()) {
 			//Contagem das vezes o livro foi emprestado.
-			cont++;
+			c++;
 		}
 		
-		if (cont >= 1) {
+		if (c >= 1) {
 			return false;
 		}
 	} catch (SQLException e) {
@@ -117,22 +117,21 @@ public class EmprestimoDAO {
 			
 
 			while (rs.next()) {
-				 Emprestimo emprestimo1 = new Emprestimo();
-					Calendar data = Calendar.getInstance();
-					data.setTime(rs.getDate("dataEmprestimo"));
-					emprestimo1.setDataEmprestimo(data);
-					Aluno aluno = new AlunoDAO().getById(rs.getLong("alunoID"));
-					Livro livro = new LivroDAO().getById(rs.getLong("livroID"));
-					emprestimo1.setAluno(aluno);
-					emprestimo1.setLivro(livro);
+				Emprestimo emprestim = new Emprestimo();
+				Calendar data = Calendar.getInstance();
+				data.setTime(rs.getDate("dataEmprestimo"));
+				emprestim.setDataEmprestimo(data);
+				Aluno aluno = new AlunoDAO().getById(rs.getLong("alunoID"));
+				Livro livro = new LivroDAO().getById(rs.getLong("livroID"));
+				emprestim.setAluno(aluno);
+				emprestim.setLivro(livro);
 
-					emprestimo.add(emprestimo1);
-
+				emprestimo.add(emprestim);
 			}
 			rs.close();
 
 			stmt.close();
-			
+		
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -154,17 +153,16 @@ public class EmprestimoDAO {
 			ResultSet rs = stmt.executeQuery();
 			
 		 while (rs.next()){
-			 Emprestimo emprestimo1 = new Emprestimo();
+			 Emprestimo emprestim = new Emprestimo();
 				Calendar data = Calendar.getInstance();
 				data.setTime(rs.getDate("dataEmprestimo"));
-				emprestimo1.setDataEmprestimo(data);
+				emprestim.setDataEmprestimo(data);
 				Aluno aluno = new AlunoDAO().getById(rs.getLong("alunoID"));
 				Livro livro = new LivroDAO().getById(rs.getLong("livroID"));
-				emprestimo1.setAluno(aluno);
-				emprestimo1.setLivro(livro);
+				emprestim.setAluno(aluno);
+				emprestim.setLivro(livro);
 
-				emprestimo.add(emprestimo1);
-		 
+				emprestimo.add(emprestim);
 		 }
 
 			rs.close();
@@ -218,6 +216,7 @@ public class EmprestimoDAO {
 		try {
 
 			Emprestimo emprestimo = null;
+			
 			PreparedStatement stmt = this.connection.prepareStatement("select * from emprestimo where id=?;");
 			stmt.setLong(1, id);
 			ResultSet rs = stmt.executeQuery();
@@ -235,7 +234,8 @@ public class EmprestimoDAO {
 	}
 	private Emprestimo formacaoEmprestimo(ResultSet rs) throws SQLException {
 		Emprestimo emprestimo = new Emprestimo();
-
+		
+		emprestimo.setId(rs.getLong("id"));
 		Aluno aluno = new AlunoDAO().getById(rs.getLong("alunoID"));
 		emprestimo.setAluno(aluno);
 		Livro livro = new LivroDAO().getById(rs.getLong("livroID"));
