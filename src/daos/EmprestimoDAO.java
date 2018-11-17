@@ -112,8 +112,6 @@ public class EmprestimoDAO {
 			PreparedStatement stmt = this.connection.prepareStatement("select * from emprestimo;");
 			ResultSet rs = stmt.executeQuery();
 
-			Calendar dataEmprestimo = Calendar.getInstance();
-			stmt.setDate(1, new Date(dataEmprestimo.getTimeInMillis()-14 * 24 * 60 * 60 * 1000));
 			
 
 			while (rs.next()) {
@@ -173,10 +171,10 @@ public class EmprestimoDAO {
 		}
 			return emprestimo;
 	}
-	public boolean remover (Emprestimo emprestimo) {
+	public boolean devolucao (Long id) {
 		try {
 			PreparedStatement stmt = connection.prepareStatement("delete from emprestimo where id=?;");
-			stmt.setLong(1, emprestimo.getId());
+			stmt.setLong(1, id);
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {
@@ -185,7 +183,9 @@ public class EmprestimoDAO {
 		}
 		return true;
 	}
-	public List<Emprestimo> getLista() {
+
+
+	public List<Emprestimo> getEmprestimo() {
 		try {
 
 			List<Emprestimo> emprestimo = new ArrayList<Emprestimo>();

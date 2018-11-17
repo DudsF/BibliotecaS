@@ -69,7 +69,7 @@
 		<thead>
 			<tr>
 				<th>Livro</th>
-				<th>Matrícula</th>
+				<th>Nome</th>
 				<th>Data do emprestimo</th>
 				<th>Devolução</th>
 			</tr>
@@ -78,23 +78,11 @@
 			<c:forEach var="emprestimo" items="${emprestimo}">
 				<tr>
 					<td>${emprestimo.livro.titulo}</td>
-					<td>${emprestimo.aluno.matricula}</td>
-					<td><fmt:formatDate value="${emprestimo.dataEmprestimo.time}" pattern="dd/MM/yyyy" /></td>
-					<c:if test="${empty emprestimo.dataDevolucao}">
-							<td class="is-one-third">
-								<form method="POST" action="/BibliotecaS/emprestimo/devolucao"> 
-									<input type="hidden" name="alunoID" value="${emprestimo.aluno.id}"/>
-									<input type="hidden" name="livroID" value="${emprestimo.livro.id}"/>
-									<button type="submit" class="button is-info">Fazer Devolução</button>  
-								</form>
-							</td>
-						</c:if>
-						<c:if test="${not empty emprestimo.dataDevolucao}">
-							<td><fmt:formatDate value="${emprestimo.dataDevolucao.time}" pattern="dd/MM/yyyy" /></td>
-						</c:if>
+					<td>${emprestimo.aluno.nome}</td>
+					<td>${emprestimo.dataEmpprestimo.time}</td>
 				</tr>
 					
-					<td><a href="/BibliotecaS/emprestimo/devolucao?id=${emprestimo.id}">Fazer Devolução</a></td>
+				
 				</tr>
 			</c:forEach>
 		</tbody>

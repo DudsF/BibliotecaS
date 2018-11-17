@@ -45,20 +45,21 @@ public class EmpController {
 		return "redirect:/emprestimo";
 	}
  	
-	
 
 
 	@GetMapping("/emprestimo")
 	public ModelAndView listar() {
 		System.out.println("Chamou o metódo de listagem");
 		EmprestimoDAO emprestimoDAO = new EmprestimoDAO();
-		List<Emprestimo> lista = emprestimoDAO.getLista();
+		List<Emprestimo> lista = emprestimoDAO.getEmprestimo();
 		ModelAndView model = new ModelAndView("emprestimo/list");
 		model.addObject("emprestimo", lista);
 		return model;
 	}
+	
+	
 
-	@GetMapping("/emprestimo/empAbertos")
+	@GetMapping("/emprestimo/list")
 	public ModelAndView listarAbertos() {
 		System.out.println("Chamou o metódo de listagem de emprestimos abertos");
 		EmprestimoDAO emprestimoDAO = new EmprestimoDAO();
@@ -81,13 +82,10 @@ public class EmpController {
 		public String devolucao(Long id ) {
 			System.out.println("Chamou o método devolução");
 			EmprestimoDAO emprestimoDAO = new EmprestimoDAO();
-			Emprestimo emprestimo = emprestimoDAO.getEmprestimoByID(id);
-			System.out.println(id);
-			emprestimoDAO.devolucao(emprestimo);
-			return "redirect:../emprestimos/empAbertos";
+			emprestimoDAO.devolucao(id);
+			return "redirect:../emprestimo/";
 			
 			
-		
-
+			}
 		}
-}
+		
