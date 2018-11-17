@@ -26,8 +26,8 @@ public class Emprestimo {
 	public Aluno getAluno() {
 		return aluno;
 	}
-	public void setAluno(Aluno alunoID) {
-		this.aluno = alunoID;
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
 	}
 	public Livro getLivro() {
 		return livro;

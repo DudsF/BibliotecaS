@@ -27,9 +27,7 @@ public class LivroDAO {
 			stmt.setString(1, livro.getTitulo());
 			stmt.setString(2, livro.getAutor());
 			stmt.setString(3, livro.getEditora());
-			
 			stmt.setInt(4, livro.getAnoPub());
-			
 			stmt.setInt(5, livro.getEdicao());
 	
 			stmt.execute();
@@ -38,10 +36,10 @@ public class LivroDAO {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return true;
+			return false;
 		}
 
-		return false;
+		return true;
 	}
 
 	public List<Livro> buscar () {

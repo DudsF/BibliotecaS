@@ -79,6 +79,7 @@
 				<th>Nome</th>
 				<th>Livro</th>
 				<th>Data de Empréstimo</th>
+				<th>Data de Devolução</th>
 			
 				
 			</tr>
