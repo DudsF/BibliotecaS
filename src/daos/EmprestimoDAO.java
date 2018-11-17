@@ -173,7 +173,18 @@ public class EmprestimoDAO {
 		}
 			return emprestimo;
 	}
-
+	public boolean remover (Emprestimo emprestimo) {
+		try {
+			PreparedStatement stmt = connection.prepareStatement("delete from emprestimo where id=?;");
+			stmt.setLong(1, emprestimo.getId());
+			stmt.execute();
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
 	public List<Emprestimo> getLista() {
 		try {
 
