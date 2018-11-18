@@ -10,7 +10,7 @@ public class ConnectionFactory {
 	private static Connection con = null;
 	private static final String banco = "biblioteca_lamary";
 	private static final String user = "root";
-	private static final String password = "lab02";
+	private static final String password = "";
 
 	public static Connection getConnection() {
 		if (con == null) {
