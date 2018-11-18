@@ -111,7 +111,7 @@ public class LivroDAO {
 
 		try {
 			PreparedStatement stmt = this.connection.prepareStatement("select * from livros where id = ?;");
-			//stmt.setLong(1, id);
+			stmt.setLong(1, id);
 			ResultSet rs = stmt.executeQuery();
 
 			if (rs.next()) {

@@ -43,6 +43,7 @@ public class AlunoDAO {
 
 		return true;
 	}
+	
 
 	public List<Aluno> getLista() {
 		List<Aluno> result = new ArrayList<>();

@@ -85,7 +85,7 @@ public class EmpController {
 			emprestimoDAO.devolucao(id);
 			return "redirect:../emprestimo/";
 			
-			
 			}
+		
 		}
 		
