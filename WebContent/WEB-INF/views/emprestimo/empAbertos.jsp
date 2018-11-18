@@ -80,6 +80,7 @@
 					<td>${emprestimo.livro.titulo}</td>
 					<td>${emprestimo.aluno.nome}</td>
 					<td>${emprestimo.dataEmpprestimo.time}</td>
+					<td>${emprestimo.dataDevolucao.time}</td>
 				</tr>
 					
 				

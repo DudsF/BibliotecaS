@@ -59,7 +59,7 @@ public class EmpController {
 	
 	
 
-	@GetMapping("/emprestimo/list")
+	@GetMapping("/emprestimo/empAbertos")
 	public ModelAndView listarAbertos() {
 		System.out.println("Chamou o metódo de listagem de emprestimos abertos");
 		EmprestimoDAO emprestimoDAO = new EmprestimoDAO();
