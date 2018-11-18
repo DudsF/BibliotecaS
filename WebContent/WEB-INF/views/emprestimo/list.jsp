@@ -92,7 +92,6 @@
 					<td><fmt:formatDate value="${emprestimo.dataEmprestimo.time}" pattern="dd/MM/yyyy" /></td>
 					<td><fmt:formatDate value="${emprestimo.dataDevolucao.time}" pattern="dd/MM/yyyy" /></td>
 					<td><a href="/BibliotecaS/emprestimo/devolucao?id=${emprestimo.id} ">Fazer Devolução</a></td>
-					
 				</tr>
 			</c:forEach>
 

@@ -146,8 +146,8 @@ public class EmprestimoDAO {
 					.prepareStatement("select * from emprestimo where dataDevolucao is null and dataEmprestimo < ?;");
 			
 
-			Calendar dataEmprestimo = Calendar.getInstance();
-			stmt.setDate(1, new Date(dataEmprestimo.getTimeInMillis()-14 * 24 * 60 * 60 * 1000));
+			Calendar dataDevolucao = Calendar.getInstance();
+			stmt.setDate(1, new Date(dataDevolucao.getTimeInMillis()-14 * 24 * 60 * 60 * 1000));
 			ResultSet rs = stmt.executeQuery();
 			
 		 while (rs.next()){
@@ -171,18 +171,7 @@ public class EmprestimoDAO {
 		}
 			return emprestimo;
 	}
-	public boolean devolucao (Long id) {
-		try {
-			PreparedStatement stmt = connection.prepareStatement("delete from emprestimo where id=?;");
-			stmt.setLong(1, id);
-			stmt.execute();
-			stmt.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-			return false;
-		}
-		return true;
-	}
+	
 
 
 	public List<Emprestimo> getEmprestimo() {
@@ -206,12 +195,11 @@ public class EmprestimoDAO {
 	}
 
 	public boolean devolucao(Emprestimo emprestimo) {
-		String sql = "update emprestimo set dataDevolucao=? where alunoID=? and livroID=?;";
+		String sql = "update emprestimo set dataDevolucao=? where id=?;";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setDate(1, new java.sql.Date(Calendar.getInstance().getTimeInMillis()));
-			stmt.setLong(2, emprestimo.getAluno().getId());
-			stmt.setLong(3, emprestimo.getLivro().getId());
+			stmt.setLong(2, emprestimo.getId());
 			
 			stmt.execute();
 			stmt.close();
@@ -256,19 +244,20 @@ public class EmprestimoDAO {
 		data.setTime(rs.getDate("dataEmprestimo"));
 		emprestimo.setDataEmprestimo(data);
 		
-
+		 
+		
 		if (rs.getDate("dataDevolucao") != null) {
-			data.setTime(rs.getDate("dataDevolucao"));
-			emprestimo.setDataDevolucao(data);
-		}else {
-			emprestimo.setDataDevolucao(null);
+		 Calendar data2 = Calendar.getInstance();
+			data2.setTime(rs.getDate("dataDevolucao"));
+			emprestimo.setDataDevolucao(data2);
 		}
 
 		return emprestimo;
 		}
-	
 
 }
+
+	
 
 
 	

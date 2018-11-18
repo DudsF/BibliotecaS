@@ -71,7 +71,6 @@
 				<th>Livro</th>
 				<th>Nome</th>
 				<th>Data do emprestimo</th>
-				<th>Devolução</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -79,8 +78,7 @@
 				<tr>
 					<td>${emprestimo.livro.titulo}</td>
 					<td>${emprestimo.aluno.nome}</td>
-					<td>${emprestimo.dataEmpprestimo.time}</td>
-					<td>${emprestimo.dataDevolucao.time}</td>
+					<td><fmt:formatDate value="${emprestimo.dataEmprestimo.time}" pattern="dd/MM/yyyy" /></td>
 				</tr>
 					
 				
