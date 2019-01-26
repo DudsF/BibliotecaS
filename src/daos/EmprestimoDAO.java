@@ -39,7 +39,7 @@ public class EmprestimoDAO {
 		
 
 		stmt.execute();
-		stmt.close();
+		stmt.close(); 
 
 	} catch (SQLException e) {
 		e.printStackTrace();
@@ -183,7 +183,7 @@ public class EmprestimoDAO {
 
 			while (rs.next()) {
 				emprestimo.add (formacaoEmprestimo(rs));
-				
+				 
 			}
 			rs.close();
 			stmt.close();
